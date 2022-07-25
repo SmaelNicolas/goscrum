@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Login } from "./Components/views/Login/Login";
 import { Register } from "./Components/Register/Register";
 import { Error404 } from "./Components/views/Error404/Error404";
@@ -24,10 +24,12 @@ const pageTransition = {
 };
 
 export const App = () => {
+	const location = useLocation();
+
 	return (
 		<div className='App'>
 			<AnimatePresence>
-				<Routes>
+				<Routes location={location} key={location.pathname}>
 					<Route
 						path='/'
 						element={
