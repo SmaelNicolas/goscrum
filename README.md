@@ -6,6 +6,8 @@
 
 ### Diseño mobile first
 
+### Estilos en CSS
+
 ### Formularios con Formik
 
 ### Custom hooks
