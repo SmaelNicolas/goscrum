@@ -1,9 +1,7 @@
+// https://formik.org/docs/overview
 import { useFormik } from "formik";
 
 export const Login = () => {
-	// const [email, setEmail] = useState("");
-	// const [password, setPassword] = useState("");
-
 	const initialValues = {
 		email: "",
 		password: "",
@@ -14,6 +12,10 @@ export const Login = () => {
 
 		if (!values.email) {
 			errors.email = "El email es requerido";
+		} else if (
+			!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+		) {
+			errors.email = "El email no es valido";
 		}
 		if (!values.password) {
 			errors.password = "El password es requerido";
