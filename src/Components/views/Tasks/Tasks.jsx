@@ -1,3 +1,9 @@
+import { Header } from "../../Header/Header";
+
 export const Tasks = () => {
-	return <div>Tasks</div>;
+	return (
+		<div>
+			<Header />
+		</div>
+	);
 };
