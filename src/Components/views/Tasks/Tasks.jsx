@@ -1,6 +1,7 @@
 import { useResize } from "../../../Hooks/useResize";
 import { Card } from "../../Card/Card";
 import { Header } from "../../Header/Header";
+import { TaskForm } from "../../TaskForm/TaskForm";
 
 export const Tasks = () => {
 	const { isMobile } = useResize;
@@ -14,6 +15,7 @@ export const Tasks = () => {
 	return (
 		<div>
 			<Header />
+			<TaskForm />
 			<main id='tasks'>
 				{/* wrapperlist */}
 				{isMobile ? (
