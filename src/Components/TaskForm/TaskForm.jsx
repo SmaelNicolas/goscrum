@@ -5,8 +5,9 @@ export const TaskForm = () => {
 	const initialValues = {
 		title: "",
 		status: "",
-		prority: "",
+		priority: "",
 		description: "",
+		textarea: "",
 	};
 
 	const onSubmit = () => {
@@ -21,10 +22,11 @@ export const TaskForm = () => {
 			.required(requiered),
 		status: Yup.string().required(requiered),
 		priority: Yup.string().required(requiered),
+		textarea: Yup.string().required(requiered),
 	});
 
 	const formik = useFormik({ initialValues, validationSchema, onSubmit });
-	const { handleSubmit, handleChange, errors } = formik;
+	const { handleSubmit, handleChange, errors, touched, handleBlur } = formik;
 
 	return (
 		<div>
@@ -37,37 +39,62 @@ export const TaskForm = () => {
 							name='title'
 							placeholder='Titulo'
 							onChange={handleChange}
+							onBlur={handleBlur}
+							className={errors.title ? "error" : "sinError"}
 						/>
-						{errors.title && <span>{errors.title}</span>}
+						{errors.title && touched.title && (
+							<span>{errors.title}</span>
+						)}
 					</div>
 					<div>
-						<select name='status' id='' onChange={handleChange}>
+						<select
+							name='status'
+							id=''
+							onChange={handleChange}
+							onBlur={handleBlur}
+							className={errors.title ? "error" : "sinError"}
+						>
 							<option value=''>Seleccionar Opcion</option>
 							<option value='new'>Nueva</option>
 							<option value='inProcess'>En Proceso</option>
 							<option value='finished'>Terminada</option>
 						</select>
-						{errors.status && <span>{errors.status}</span>}
+						{errors.status && touched.status && (
+							<span>{errors.status}</span>
+						)}
 					</div>
 					<div>
-						<select name='priority' id='' onChange={handleChange}>
+						<select
+							name='priority'
+							id=''
+							onChange={handleChange}
+							onBlur={handleBlur}
+							className={errors.title ? "error" : "sinError"}
+						>
 							<option value=''>Seleccionar Opcion</option>
 							<option value='low'>Baja</option>
 							<option value='medium'>Media</option>
 							<option value='high'>Alta</option>
 						</select>
-						{errors.priority && <span>{errors.priority}</span>}
+						{errors.priority && touched.priority && (
+							<span>{errors.priority}</span>
+						)}
 					</div>
 				</div>
 				<div>
 					<textarea
-						name='description'
+						name='textarea'
 						id=''
 						cols='30'
 						rows='10'
-						onChange={handleChange}
 						placeholder='Descripcion'
+						onChange={handleChange}
+						onBlur={handleBlur}
+						className={errors.title ? "error" : "sinError"}
 					/>
+					{errors.textarea && touched.textarea && (
+						<span>{errors.textarea}</span>
+					)}
 				</div>
 				<button type='submit'>Crear</button>
 			</form>
