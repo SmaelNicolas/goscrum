@@ -8,6 +8,7 @@ import { Tasks } from "./Components/views/Tasks/Tasks";
 
 // https://www.framer.com/motion/
 import { AnimatePresence, motion } from "framer-motion";
+import { Registered } from "./Components/views/Registered/Registered";
 
 const Error404 = lazy(() => import("./Components/views/Error404/Error404"));
 
@@ -75,6 +76,20 @@ export const App = () => {
 								variant={pageTransition}
 							>
 								<Register />
+							</motion.div>
+						}
+					/>
+					<Route
+						path='/registered'
+						element={
+							<motion.div
+								className='page'
+								initial='out'
+								animate='in'
+								exit='out'
+								variant={pageTransition}
+							>
+								<Registered />
 							</motion.div>
 						}
 					/>
