@@ -2,7 +2,7 @@ import "./App.css";
 import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Login } from "./Components/views/Login/Login";
-import { Register } from "./Components/Register/Register";
+import { Register } from "./Components/views/Register/Register";
 // import { Error404 } from "./Components/views/Error404/Error404";
 import { Tasks } from "./Components/views/Tasks/Tasks";
 
@@ -61,6 +61,20 @@ export const App = () => {
 								variant={pageTransition}
 							>
 								<Login />
+							</motion.div>
+						}
+					/>
+					<Route
+						path='/register'
+						element={
+							<motion.div
+								className='page'
+								initial='out'
+								animate='in'
+								exit='out'
+								variant={pageTransition}
+							>
+								<Register />
 							</motion.div>
 						}
 					/>
