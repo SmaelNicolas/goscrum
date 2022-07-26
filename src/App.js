@@ -1,8 +1,8 @@
 import "./App.css";
 import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { Login } from "./Components/views/Login/Login";
-import { Register } from "./Components/views/Register/Register";
+import { Login } from "./Components/views/Auth/Login/Login";
+import { Register } from "./Components/views/Auth/Register/Register";
 // import { Error404 } from "./Components/views/Error404/Error404";
 import { Tasks } from "./Components/views/Tasks/Tasks";
 
