@@ -1,6 +1,4 @@
-import React from "react";
-
-export const Card = (fnReduce) => {
+export const Card = ({ fnReduce }) => {
 	return (
 		<div id='card'>
 			<div>X</div>
