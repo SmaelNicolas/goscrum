@@ -1,25 +1,14 @@
-import { useEffect, useState } from "react";
+import { useResize } from "../../../Hooks/useResize";
 import { Header } from "../../Header/Header";
 
 export const Tasks = () => {
-	const [isMobile, setIsMobile] = useState(
-		window.innerWidth < 900 ? true : false
-	);
+	const { isMobile } = useResize;
 
 	const reduceString = (str) => {
 		return str.length > 300
 			? { string: str.slice(0, 297).concat("..."), addButton: true }
 			: { string: str, addButton: false };
 	};
-
-	const handleResize = () => {
-		window.innerWidth < 900 ? setIsMobile(true) : setIsMobile(false);
-	};
-
-	useEffect(() => {
-		window.addEventListener("resize", handleResize);
-		return () => window.removeEventListener("resize", handleResize);
-	});
 
 	return (
 		<div>
