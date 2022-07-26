@@ -1,11 +1,15 @@
 import "./App.css";
+import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Login } from "./Components/views/Login/Login";
 import { Register } from "./Components/Register/Register";
-import { Error404 } from "./Components/views/Error404/Error404";
+// import { Error404 } from "./Components/views/Error404/Error404";
 import { Tasks } from "./Components/views/Tasks/Tasks";
 
+// https://www.framer.com/motion/
 import { AnimatePresence, motion } from "framer-motion";
+
+const Error404 = lazy(() => import("./Components/views/Error404/Error404"));
 
 const RequireAuth = ({ children }) => {
 	if (!localStorage.getItem("logged")) {
@@ -70,7 +74,9 @@ export const App = () => {
 								exit='out'
 								variant={pageTransition}
 							>
-								<Error404 />
+								<Suspense fallback={<>CARGANDOOOO...</>}>
+									<Error404 />
+								</Suspense>
 							</motion.div>
 						}
 					/>
