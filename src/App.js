@@ -80,7 +80,7 @@ export const App = () => {
 						}
 					/>
 					<Route
-						path='/registered'
+						path='/registered/:teamID'
 						element={
 							<motion.div
 								className='page'
