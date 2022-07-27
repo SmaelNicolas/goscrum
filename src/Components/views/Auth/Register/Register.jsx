@@ -69,7 +69,11 @@ export const Register = () => {
 			}),
 		})
 			.then((response) => response.json())
-			.then(navigate("/registered", { replace: true }));
+			.then((data) =>
+				navigate(`/registered/${data?.result?.user?.teamID}`, {
+					replace: true,
+				})
+			);
 
 		alert();
 	};
