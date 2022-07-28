@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import { useNavigate, Link } from "react-router-dom";
 import * as Yup from "yup";
+import { swal } from "../../../../utils/swal";
 
 const { REACT_APP_API_ENDPOINT: API_ENDPOINT } = process.env;
 
@@ -42,6 +43,7 @@ export const Login = () => {
 					localStorage.setItem("token", data?.result?.token);
 					navigate("/", { replace: true });
 				} else {
+					swal();
 				}
 			});
 	};
