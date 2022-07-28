@@ -13,7 +13,7 @@ import { Registered } from "./Components/views/Registered/Registered";
 const Error404 = lazy(() => import("./Components/views/Error404/Error404"));
 
 const RequireAuth = ({ children }) => {
-	if (!localStorage.getItem("logged")) {
+	if (!localStorage.getItem("token")) {
 		return <Navigate to='/login' replace={true} />;
 	}
 	return children;
