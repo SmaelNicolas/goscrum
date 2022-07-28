@@ -1,15 +1,41 @@
+import { useEffect, useState } from "react";
 import { useResize } from "../../../Hooks/useResize";
 import { Card } from "../../Card/Card";
 import { Header } from "../../Header/Header";
 import { TaskForm } from "../../TaskForm/TaskForm";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
+const { REACT_APP_API_ENDPOINT: API_ENDPOINT } = process.env;
 
 export const Tasks = () => {
-	const { isMobile } = useResize;
+	const [list, setList] = useState([]);
+	const { isMobile } = useResize();
+	const [loading, setLoading] = useState(true);
 
-	const reduceString = (str) => {
-		return str.length > 300
-			? { string: str.slice(0, 297).concat("..."), addButton: true }
-			: { string: str, addButton: false };
+	useEffect(() => {
+		fetch(`${API_ENDPOINT}task`, {
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: "Bearer " + localStorage.getItem("token"),
+			},
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				setList(data.result);
+				setTimeout(() => {
+					setLoading(false);
+				}, 5000);
+			});
+	}, []);
+
+	const renderAllCards = () => {
+		return list?.map((data) => <Card key={data._id} data={data} />);
+	};
+	const renderCardsByType = (value) => {
+		return list
+			?.filter((card) => card.status === value)
+			.map((data) => <Card key={data._id} data={data} />);
 	};
 
 	return (
@@ -18,27 +44,31 @@ export const Tasks = () => {
 			<TaskForm />
 			<main id='tasks'>
 				{/* wrapperlist */}
-				{isMobile ? (
+				{!list.length ? (
+					<div>No existen tareas creadas</div>
+				) : loading ? (
+					<Skeleton />
+				) : isMobile ? (
 					<section>
 						<div id='list cards'>
 							<h4>EN TELEFONO</h4>
-							<Card fnReduce={reduceString} />
+							{renderAllCards()}
 						</div>
 					</section>
 				) : (
 					<section>
-						<h2>Mis Tareas</h2>
-						<div id='list cards'>
+						<h2>DESKTOP</h2>
+						<div>
 							<h4>Nuevas</h4>
-							<Card fnReduce={reduceString} />
+							{renderCardsByType("NEW")}
 						</div>
-						<div id='list cards'>
-							<h4>En Proceso</h4>
-							<Card fnReduce={reduceString} />
+						<div>
+							<h4>En Progreso</h4>
+							{renderCardsByType("IN PROGRESS")}
 						</div>
-						<div id='list cards'>
-							<h4>Terminadas</h4>
-							<Card fnReduce={reduceString} />
+						<div>
+							<h4>Finalizadas</h4>
+							{renderCardsByType("FINISHED")}
 						</div>
 					</section>
 				)}
