@@ -191,30 +191,31 @@ export const Register = () => {
 					)}
 				</div>
 			)}
-			{
-				<FormControlLabel
-					control={
-						<Switch
-							value={values.switch}
-							onChange={() =>
-								formik.setFieldValue(
-									"switch",
-									!formik.values.switch
-								)
-							}
-							name='switch'
-							color='secondary'
-						/>
-					}
-					label='Perteneces a un equipo ya creado'
-				/>
-			}
+
+			<FormControlLabel
+				control={
+					<Switch
+						value={values.switch}
+						onChange={() =>
+							formik.setFieldValue(
+								"switch",
+								!formik.values.switch
+							)
+						}
+						name='switch'
+						color='secondary'
+					/>
+				}
+				label='Pertenecés a un equipo ya creado'
+			/>
 			{values.switch && (
 				<div>
-					<label htmlFor=''>Identificador del equipo</label>
+					<label>
+						Por favor, introduce el identificador de equipo
+					</label>
 					<input
 						type='text'
-						name='teamId'
+						name='teamID'
 						value={values.teamID}
 						onChange={handleChange}
 					/>
