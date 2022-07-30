@@ -13,7 +13,11 @@ import {
 	RadioGroup,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteTask, getTasks } from "../../../store/actions/tasksActions";
+import {
+	deleteTask,
+	editTaskStatus,
+	getTasks,
+} from "../../../store/actions/tasksActions";
 
 export const Tasks = () => {
 	const { isMobile } = useResize();
@@ -49,17 +53,28 @@ export const Tasks = () => {
 	}, [search]);
 
 	const handleDelete = (id) => dispatch(deleteTask(id));
+	const handleEditStatus = (data) => dispatch(editTaskStatus(data));
 
 	const renderAllCards = () => {
 		return list?.map((data) => (
-			<Card deleteTask={handleDelete} key={data._id} data={data} />
+			<Card
+				deleteTask={handleDelete}
+				key={data._id}
+				data={data}
+				editTasksStatus={handleEditStatus}
+			/>
 		));
 	};
 	const renderCardsByType = (value) => {
 		return listByType
 			?.filter((card) => card.status === value)
 			.map((data) => (
-				<Card deleteTask={handleDelete} key={data._id} data={data} />
+				<Card
+					deleteTask={handleDelete}
+					key={data._id}
+					data={data}
+					editTasksStatus={handleEditStatus}
+				/>
 			));
 	};
 

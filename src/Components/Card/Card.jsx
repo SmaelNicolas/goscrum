@@ -2,6 +2,8 @@ import { useState } from "react";
 
 export const Card = ({
 	deleteTask,
+	editTasksStatus,
+	data,
 	data: {
 		_id,
 		title,
@@ -27,7 +29,10 @@ export const Card = ({
 			<h3>{title}</h3>
 			<h6>{dateTime}</h6>
 			<h5>{userName}</h5>
-			<button type='button'> {status}</button>
+			<button type='button' onClick={() => editTasksStatus(data)}>
+				{" "}
+				{status}
+			</button>
 			<button type='button'> {importance}</button>
 			<p style={{ width: "500px" }}>
 				{!showMore ? reduceString(description).string : description}
