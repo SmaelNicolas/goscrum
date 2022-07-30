@@ -13,7 +13,7 @@ import {
 	RadioGroup,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { getTasks } from "../../../store/actions/tasksActions";
+import { deleteTask, getTasks } from "../../../store/actions/tasksActions";
 
 export const Tasks = () => {
 	const { isMobile } = useResize();
@@ -48,13 +48,19 @@ export const Tasks = () => {
 		}
 	}, [search]);
 
+	const handleDelete = (id) => dispatch(deleteTask(id));
+
 	const renderAllCards = () => {
-		return list?.map((data) => <Card key={data._id} data={data} />);
+		return list?.map((data) => (
+			<Card deleteTask={handleDelete} key={data._id} data={data} />
+		));
 	};
 	const renderCardsByType = (value) => {
 		return listByType
 			?.filter((card) => card.status === value)
-			.map((data) => <Card key={data._id} data={data} />);
+			.map((data) => (
+				<Card deleteTask={handleDelete} key={data._id} data={data} />
+			));
 	};
 
 	const handleChangeImportance = (importance) => {

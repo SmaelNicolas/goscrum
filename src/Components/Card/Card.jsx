@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 export const Card = ({
+	deleteTask,
 	data: {
 		_id,
 		title,
@@ -22,7 +23,7 @@ export const Card = ({
 
 	return (
 		<div id='card'>
-			<div>X</div>
+			<div onClick={() => deleteTask(_id)}>X</div>
 			<h3>{title}</h3>
 			<h6>{dateTime}</h6>
 			<h5>{userName}</h5>
