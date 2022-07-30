@@ -12,32 +12,30 @@ import {
 	Radio,
 	RadioGroup,
 } from "@mui/material";
-
-const { REACT_APP_API_ENDPOINT: API_ENDPOINT } = process.env;
+import { useSelector, useDispatch } from "react-redux";
+import { getTasks } from "../../../store/actions/tasksActions";
 
 export const Tasks = () => {
 	const { isMobile } = useResize();
 	const [list, setList] = useState([]);
 	const [listByType, setListByType] = useState([]);
 	const [taskMadeBy, setTaskMAdeBy] = useState("ALL");
-	const [loading, setLoading] = useState(true);
 	const [search, setSearch] = useState();
+	const dispatch = useDispatch();
+
+	const { loading, error, tasks } = useSelector((state) => {
+		return state.taskReducer;
+	});
 
 	useEffect(() => {
-		fetch(`${API_ENDPOINT}task${taskMadeBy === "ME" ? "/me" : ""}`, {
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: "Bearer " + localStorage.getItem("token"),
-			},
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				setList(data.result);
-				setListByType(data.result);
-				setTimeout(() => {
-					setLoading(false);
-				}, 5000);
-			});
+		if (tasks?.length) {
+			setList(tasks);
+			setListByType(tasks);
+		}
+	}, [tasks]);
+
+	useEffect(() => {
+		dispatch(getTasks(taskMadeBy === "ME" ? "me" : ""));
 	}, [taskMadeBy]);
 
 	useEffect(() => {
@@ -120,7 +118,9 @@ export const Tasks = () => {
 						<option value='HIGH'>Alta</option>
 					</select>
 				</div>
-				{!list.length ? (
+				{error ? (
+					<div>hay un error</div>
+				) : !list.length ? (
 					<div>No existen tareas creadas</div>
 				) : loading ? (
 					<Skeleton />
