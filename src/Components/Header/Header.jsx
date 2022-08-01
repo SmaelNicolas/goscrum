@@ -19,6 +19,9 @@ export const Header = () => {
 	return (
 		<header>
 			<span>Go Scrum</span>
+			<button onClick={() => navigate("/donate", { replace: true })}>
+				Donar
+			</button>
 			<div>
 				<div>{user}</div>
 				<div onClick={handleLogOut}>X</div>
