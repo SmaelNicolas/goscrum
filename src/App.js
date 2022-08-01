@@ -1,4 +1,3 @@
-import "./App.css";
 import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Login } from "./Components/views/Auth/Login/Login";
@@ -10,6 +9,9 @@ import { Tasks } from "./Components/views/Tasks/Tasks";
 import { AnimatePresence, motion } from "framer-motion";
 import { Registered } from "./Components/views/Registered/Registered";
 import { Donate } from "./Components/views/Donate/Donate";
+
+// CSS
+import "./app.css";
 
 const Error404 = lazy(() => import("./Components/views/Error404/Error404"));
 
@@ -33,7 +35,7 @@ export const App = () => {
 	const location = useLocation();
 
 	return (
-		<div className='App'>
+		<div className='app--container'>
 			<AnimatePresence>
 				<Routes location={location} key={location.pathname}>
 					<Route
