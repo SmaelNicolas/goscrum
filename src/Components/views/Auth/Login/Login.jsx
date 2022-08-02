@@ -101,20 +101,13 @@ export const Login = () => {
 					)}
 				</div>
 				<div>
-					<button
-						type='submit'
-						className='button--send'
-						disabled={
-							errors.password === undefined &&
-							errors.userName === undefined
-						}
-					>
+					<button type='submit' className='button--send'>
 						Enviar
 					</button>
 				</div>
-				<div className='login--help--text'>¿No tenes una cuenta?</div>
+				<div className='form--help--text'>¿No tenes una cuenta?</div>
 				<div>
-					<Link to='/register' className='login--link--register'>
+					<Link to='/register' className='link--othersection'>
 						Registrarme
 					</Link>
 				</div>

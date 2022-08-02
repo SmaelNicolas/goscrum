@@ -27,15 +27,3 @@
 	transition: 0.1s all linear;
 	transform: scale(1.05);
 }
-
-.login--help--text {
-	font-size: var(--fs--s);
-	margin: 10px 0 2px 0;
-	cursor: default;
-}
-
-.login--link--register,
-.login--link--register:visited {
-	text-transform: uppercase;
-	color: var(--clr--primary);
-}
