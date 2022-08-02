@@ -22,7 +22,7 @@
 }
 
 .login--form--input {
-	padding-left: 2px;
+	padding: 3px 2px;
 }
 
 .button--send {
@@ -32,16 +32,24 @@
 	margin: 10px 0px;
 	cursor: pointer;
 	border-radius: 5px;
+	transition: 0.1s all linear;
+	font-weight: 500;
+	letter-spacing: 0.3px;
 }
 
 .button--send:disabled {
 	background-color: var(--clr--black--low);
 	cursor: not-allowed;
 }
+.button--send:hover {
+	transition: 0.1s all linear;
+	transform: scale(1.05);
+}
 
 .login--help--text {
 	font-size: var(--fs--s);
 	margin: 10px 0 2px 0;
+	cursor: default;
 }
 
 .login--link--register,
