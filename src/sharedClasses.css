@@ -14,7 +14,26 @@
 	cursor: default;
 }
 
-.login--form--error {
+.form--container {
+	width: 100%;
+	max-width: 400px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.form--label {
+	font-size: var(--fs--primary);
+	font-weight: 900;
+}
+
+.form--input {
+	padding: 3px 2px;
+	width: 170px;
+}
+
+.form--input--error {
 	align-self: center;
 	width: 80%;
 	height: 10px;
@@ -29,4 +48,16 @@
 }
 .form--input--correct {
 	border: 1px solid var(--clr--black--low);
+}
+
+.link--othersection,
+.link--othersection:visited {
+	text-transform: uppercase;
+	color: var(--clr--primary);
+}
+
+.form--help--text {
+	font-size: var(--fs--s);
+	margin: 10px 0 2px 0;
+	cursor: default;
 }
