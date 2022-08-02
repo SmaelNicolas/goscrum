@@ -4,6 +4,8 @@ import { useNavigate, Link } from "react-router-dom";
 import * as Yup from "yup";
 import { swal } from "../../../../utils/swal";
 
+import "./login.css";
+
 const { REACT_APP_API_ENDPOINT: API_ENDPOINT } = process.env;
 
 export const Login = () => {
@@ -19,7 +21,7 @@ export const Login = () => {
 	const validationSchema = () =>
 		Yup.object().shape({
 			userName: Yup.string()
-				.min(4, "La cantidad mínima de caracteres es 4")
+				.min(4, "Minimo 4 caracteres")
 				.required(required),
 			password: Yup.string().required(required),
 		});
@@ -55,40 +57,68 @@ export const Login = () => {
 		formik;
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<h1>Iniciar sesión</h1>
-			<div>
-				<label>Nombre de usuario</label>
-				<input
-					type='text'
-					name='userName'
-					onChange={handleChange}
-					value={values.userName}
-					onBlur={handleBlur}
-				/>
-				{errors.userName && touched.userName && (
-					<div>{errors.userName}</div>
-				)}
-			</div>
-			<div>
-				<label>Contraseña</label>
-				<input
-					type='password'
-					name='password'
-					onChange={handleChange}
-					value={values.password}
-					onBlur={handleBlur}
-				/>
-				{errors.password && touched.password && (
-					<div>{errors.password}</div>
-				)}
-			</div>
-			<div>
-				<button type='submit'>Enviar</button>
-			</div>
-			<div>
-				<Link to='/register'>Registrarme</Link>
-			</div>
-		</form>
+		<div className='big--container'>
+			<h1 className='h1--title'>Iniciar Sesión</h1>
+			<form onSubmit={handleSubmit} className='login--form--container'>
+				<div className='login--form--section'>
+					<label className='login--form--label'>Usuario</label>
+					<input
+						type='text'
+						name='userName'
+						onChange={handleChange}
+						value={values.userName}
+						onBlur={handleBlur}
+						className={`login--form--input ${
+							errors.userName
+								? "form--input--incorrect"
+								: "form--input--correct"
+						}`}
+					/>
+				</div>
+				<div className='login--form--error'>
+					{errors.userName && touched.userName && (
+						<div>{errors.userName}</div>
+					)}
+				</div>
+				<div className='login--form--section'>
+					<label className='login--form--label'>Contraseña</label>
+					<input
+						type='password'
+						name='password'
+						onChange={handleChange}
+						value={values.password}
+						onBlur={handleBlur}
+						className={`login--form--input ${
+							errors.password
+								? "form--input--incorrect"
+								: "form--input--correct"
+						}`}
+					/>
+				</div>
+				<div className='login--form--error'>
+					{errors.password && touched.password && (
+						<div>{errors.password}</div>
+					)}
+				</div>
+				<div>
+					<button
+						type='submit'
+						className='button--send'
+						disabled={
+							errors.password === undefined &&
+							errors.userName === undefined
+						}
+					>
+						Enviar
+					</button>
+				</div>
+				<div className='login--help--text'>¿No tenes una cuenta?</div>
+				<div>
+					<Link to='/register' className='login--link--register'>
+						Registrarme
+					</Link>
+				</div>
+			</form>
+		</div>
 	);
 };
