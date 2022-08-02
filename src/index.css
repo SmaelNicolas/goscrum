@@ -8,8 +8,11 @@ font-family: "Montserrat", sans-serif; */
 	--ff--msr: "Montserrat", sans-serif;
 
 	--clr--primary: blue;
-	--clr--secondary: red;
+	--clr--secondary: purple;
 	--clr--attention: yellow;
+	--clr--error: red;
+	--clr--accept: lime;
+	--clr--black--low: rgba(0, 0, 0, 0.274);
 
 	--fs--primary: 1rem;
 	--fs--s: 0.8rem;
@@ -24,4 +27,22 @@ font-family: "Montserrat", sans-serif; */
 	padding: 0;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
+}
+
+*:focus,
+*:hover {
+	outline: none;
+}
+
+.app--container {
+	width: calc(100vw - (100vw - 100%));
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.page {
+	width: 100%;
 }
