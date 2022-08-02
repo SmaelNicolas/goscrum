@@ -1,0 +1,30 @@
+.big--container {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+.h1--title {
+	font-size: var(--fs--xxl);
+	width: 100%;
+	text-align: center;
+	margin: 15px 0px;
+}
+
+.login--form--error {
+	align-self: center;
+	width: 80%;
+	height: 10px;
+	text-align: end;
+	color: var(--clr--error);
+	margin: 5px 0px 10px 0px;
+}
+
+.form--input--incorrect {
+	border: 1px solid var(--clr--error);
+}
+.form--input--correct {
+	border: 1px solid var(--clr--black--low);
+}
