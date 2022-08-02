@@ -7,15 +7,6 @@
 	align-items: center;
 }
 
-.login--form--label {
-	font-size: var(--fs--primary);
-	font-weight: 900;
-}
-
-.login--form--input {
-	padding: 3px 2px;
-}
-
 .button--send {
 	background-color: var(--clr--accept);
 	border: none;

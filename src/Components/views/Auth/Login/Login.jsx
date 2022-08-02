@@ -61,41 +61,41 @@ export const Login = () => {
 			<h1 className='h1--title'>Iniciar Sesión</h1>
 			<form onSubmit={handleSubmit} className='form--container'>
 				<div className='login--form--section'>
-					<label className='login--form--label'>Usuario</label>
+					<label className='form--label'>Usuario</label>
 					<input
 						type='text'
 						name='userName'
 						onChange={handleChange}
 						value={values.userName}
 						onBlur={handleBlur}
-						className={`login--form--input ${
+						className={`form--input ${
 							errors.userName
 								? "form--input--incorrect"
 								: "form--input--correct"
 						}`}
 					/>
 				</div>
-				<div className='login--input--error'>
+				<div className='form--input--error'>
 					{errors.userName && touched.userName && (
 						<div>{errors.userName}</div>
 					)}
 				</div>
 				<div className='login--form--section'>
-					<label className='login--form--label'>Contraseña</label>
+					<label className='form--label'>Contraseña</label>
 					<input
 						type='password'
 						name='password'
 						onChange={handleChange}
 						value={values.password}
 						onBlur={handleBlur}
-						className={`login--form--input ${
+						className={`form--input ${
 							errors.password
 								? "form--input--incorrect"
 								: "form--input--correct"
 						}`}
 					/>
 				</div>
-				<div className='login--input--error'>
+				<div className='form--input--error'>
 					{errors.password && touched.password && (
 						<div>{errors.password}</div>
 					)}
