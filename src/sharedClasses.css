@@ -11,6 +11,7 @@
 	width: 100%;
 	text-align: center;
 	margin: 15px 0px;
+	cursor: default;
 }
 
 .login--form--error {
@@ -20,6 +21,7 @@
 	text-align: end;
 	color: var(--clr--error);
 	margin: 5px 0px 10px 0px;
+	cursor: default;
 }
 
 .form--input--incorrect {
