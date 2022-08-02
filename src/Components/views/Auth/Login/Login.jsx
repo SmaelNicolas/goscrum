@@ -59,7 +59,7 @@ export const Login = () => {
 	return (
 		<div className='big--container'>
 			<h1 className='h1--title'>Iniciar Sesión</h1>
-			<form onSubmit={handleSubmit} className='login--form--container'>
+			<form onSubmit={handleSubmit} className='form--container'>
 				<div className='login--form--section'>
 					<label className='login--form--label'>Usuario</label>
 					<input
@@ -75,7 +75,7 @@ export const Login = () => {
 						}`}
 					/>
 				</div>
-				<div className='login--form--error'>
+				<div className='login--input--error'>
 					{errors.userName && touched.userName && (
 						<div>{errors.userName}</div>
 					)}
@@ -95,7 +95,7 @@ export const Login = () => {
 						}`}
 					/>
 				</div>
-				<div className='login--form--error'>
+				<div className='login--input--error'>
 					{errors.password && touched.password && (
 						<div>{errors.password}</div>
 					)}
