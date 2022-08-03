@@ -37,7 +37,7 @@ export const Card = ({
 			<div className='card--title'>{title}</div>
 			<label className='card--label'>Fecha</label>
 			<div className='card--time'>{dateTime}</div>
-			<label className='card--label'>Usuario</label>
+			<label className='card--label'>Creada por</label>
 			<div className='card--user'>{userName}</div>
 			<label className='card--label'>Estado </label>
 			<button

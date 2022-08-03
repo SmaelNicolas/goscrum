@@ -6,7 +6,7 @@
 	flex-direction: column;
 	align-items: center;
 	box-shadow: 0px 4px 8px var(--clr--black--medium);
-	background-color: #bababa57;
+	background-color: #bababa33;
 }
 .card--HIGH--NEW {
 	box-shadow: 0px 4px 8px red;
