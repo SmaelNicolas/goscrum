@@ -13,6 +13,7 @@ font-family: "Montserrat", sans-serif; */
 	--clr--error: red;
 	--clr--accept: lime;
 	--clr--black--low: rgba(0, 0, 0, 0.274);
+	--clr--black--medium: rgba(0, 0, 0, 0.5);
 
 	--fs--primary: 1rem;
 	--fs--s: 0.8rem;
