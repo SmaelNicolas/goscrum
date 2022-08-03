@@ -34,11 +34,7 @@ export const Tasks = () => {
 	});
 
 	useEffect(() => {
-		console.log(tasks);
-		if (tasks?.length) {
-			setList(tasks);
-			setListByType(tasks);
-		}
+		setListByType(tasks);
 	}, [tasks]);
 
 	useEffect(() => {
@@ -59,7 +55,7 @@ export const Tasks = () => {
 	const handleEditStatus = (data) => dispatch(editTaskStatus(data));
 
 	const renderAllCards = () => {
-		return list?.map((data) => (
+		return listByType?.map((data) => (
 			<Card
 				deleteTask={handleDelete}
 				key={data._id}
@@ -68,6 +64,7 @@ export const Tasks = () => {
 			/>
 		));
 	};
+
 	const renderCardsByType = (value) => {
 		return listByType
 			?.filter((card) => card.status === value)
@@ -165,14 +162,7 @@ export const Tasks = () => {
 			) : isMobile ? (
 				<section>
 					<div id='list cards' className='task--card--container'>
-						{listByType?.map((data) => (
-							<Card
-								deleteTask={handleDelete}
-								key={data._id}
-								data={data}
-								editTasksStatus={handleEditStatus}
-							/>
-						))}
+						{renderAllCards()}
 					</div>
 				</section>
 			) : (
