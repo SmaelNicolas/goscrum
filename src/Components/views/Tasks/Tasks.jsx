@@ -34,6 +34,7 @@ export const Tasks = () => {
 	});
 
 	useEffect(() => {
+		console.log(tasks);
 		if (tasks?.length) {
 			setList(tasks);
 			setListByType(tasks);
@@ -93,16 +94,18 @@ export const Tasks = () => {
 	}, 2000);
 
 	return (
-		<div>
+		<div className='big--container'>
 			<Header />
 			<TaskForm />
-			<main id='tasks'>
-				<h2>Mis tareas</h2>
-				<div>
+			<h2 className='h2--title'>Mis Tareas</h2>
+			<div className='filters'>
+				<div className='tasks--filter'>
+					<div className='tasks--filter--label'>Filtrar por:</div>
 					<FormControl>
 						<RadioGroup
-							row
+							column='true'
 							aria-labelledby='demo-row-radio-buttons-group-label'
+							className='tasks--filter--created'
 							onChange={(e) => {
 								setTaskMAdeBy(e.currentTarget.value);
 							}}
@@ -110,66 +113,84 @@ export const Tasks = () => {
 							<FormControlLabel
 								value='ALL'
 								control={<Radio />}
-								label='Todas'
+								label='Creadas por mi grupo'
 							/>
 							<FormControlLabel
 								value='ME'
 								control={<Radio />}
-								label='Mis tareas'
+								label='Creadas por mi'
 							/>
 						</RadioGroup>
 					</FormControl>
-					<div>
-						<input
-							type='text'
-							placeholder='Buscar por titulo ...'
-							onChange={(e) => {
-								handleSearch(e?.target?.value);
-							}}
-						/>
+				</div>
+				<div className='tasks--filter'>
+					<div className='tasks--filter--label'>
+						Buscar por titulo
 					</div>
+					<input
+						type='text'
+						placeholder='Buscar por titulo ...'
+						onChange={(e) => {
+							handleSearch(e?.target?.value);
+						}}
+						className='form--input'
+					/>
+				</div>
+				<div className='tasks--filter'>
+					<div className='tasks--filter--label'>
+						Buscar por prioridad
+					</div>
+
 					<select
 						name='importance'
 						onChange={(e) => {
 							handleChangeImportance(e.currentTarget.value);
 						}}
+						className='task--filter--priority'
 					>
-						<option value=''>Seleccionar una prioridad</option>
 						<option value='ALL'>Todas</option>
 						<option value='LOW'>Baja</option>
 						<option value='MEDIUM'>Media</option>
 						<option value='HIGH'>Alta</option>
 					</select>
 				</div>
-				{error ? (
-					<div>hay un error</div>
-				) : !list.length ? (
-					<div>No existen tareas creadas</div>
-				) : loading ? (
-					<Skeleton />
-				) : isMobile ? (
-					<section>
-						<div id='list cards' className='task--card--container'>
-							{renderAllCards()}
-						</div>
-					</section>
-				) : (
-					<section>
-						<div>
-							<h4>Nuevas</h4>
-							{renderCardsByType("NEW")}
-						</div>
-						<div>
-							<h4>En Progreso</h4>
-							{renderCardsByType("IN PROGRESS")}
-						</div>
-						<div>
-							<h4>Finalizadas</h4>
-							{renderCardsByType("FINISHED")}
-						</div>
-					</section>
-				)}
-			</main>
+			</div>
+
+			{error ? (
+				<div>hay un error</div>
+			) : !list.length ? (
+				<div>No existen tareas creadas</div>
+			) : loading ? (
+				<Skeleton />
+			) : isMobile ? (
+				<section>
+					<div id='list cards' className='task--card--container'>
+						{listByType?.map((data) => (
+							<Card
+								deleteTask={handleDelete}
+								key={data._id}
+								data={data}
+								editTasksStatus={handleEditStatus}
+							/>
+						))}
+					</div>
+				</section>
+			) : (
+				<section>
+					<div>
+						<h4>Nuevas</h4>
+						{renderCardsByType("NEW")}
+					</div>
+					<div>
+						<h4>En Progreso</h4>
+						{renderCardsByType("IN PROGRESS")}
+					</div>
+					<div>
+						<h4>Finalizadas</h4>
+						{renderCardsByType("FINISHED")}
+					</div>
+				</section>
+			)}
 		</div>
 	);
 };
