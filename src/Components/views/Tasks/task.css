@@ -1,3 +1,29 @@
+.filters {
+	width: 100%;
+	margin: 10px 0px;
+}
+
+.tasks--filter {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+	border-bottom: 1px solid var(--clr--grey--ligth);
+	min-height: 50px;
+	margin: 10px 0;
+}
+.tasks--filter--label {
+	text-align: start;
+}
+.tasks--filter--created {
+	width: 100%;
+	text-align: end;
+}
+.task--filter--priority {
+	width: 150px;
+}
+
 .task--card--container {
 	width: 100%;
 	display: flex;
