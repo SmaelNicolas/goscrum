@@ -2,11 +2,9 @@ import React from "react";
 import { useFormik } from "formik";
 import { useNavigate, Link } from "react-router-dom";
 import * as Yup from "yup";
-import { swal } from "../../../../utils/swal";
 
 import "./login.css";
-
-const { REACT_APP_API_ENDPOINT: API_ENDPOINT } = process.env;
+import { POST_Login } from "../../../../APIs/fetchPOSTLogin";
 
 export const Login = () => {
 	const navigate = useNavigate();
@@ -28,27 +26,7 @@ export const Login = () => {
 
 	const onSubmit = () => {
 		const { userName, password } = values;
-
-		fetch(`${API_ENDPOINT}auth/login`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				userName,
-				password,
-			}),
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				if (data.status_code === 200) {
-					localStorage.setItem("token", data?.result?.token);
-					localStorage.setItem("user", data?.result?.user.userName);
-					navigate("/", { replace: true });
-				} else {
-					swal();
-				}
-			});
+		POST_Login(userName, password, navigate);
 	};
 
 	const formik = useFormik({ initialValues, validationSchema, onSubmit });

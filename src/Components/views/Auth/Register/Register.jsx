@@ -1,23 +1,15 @@
-// https://formik.org/docs/overview
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
-import { v4 as uuidv4 } from "uuid";
 import { Switch, FormControlLabel } from "@mui/material";
+import { POST_Register } from "../../../../APIs/fetchPOSTRegister";
+import { GET_Data } from "../../../../APIs/fetchGETSelectors";
 import "./register.css";
-
-const { REACT_APP_API_ENDPOINT } = process.env;
 
 export const Register = () => {
 	const [data, setData] = useState();
 	const navigate = useNavigate();
-
-	useEffect(() => {
-		fetch(`${REACT_APP_API_ENDPOINT}auth/data`)
-			.then((response) => response.json())
-			.then((dat) => setData(dat.result));
-	}, []);
 
 	const initialValues = {
 		userName: "",
@@ -53,32 +45,7 @@ export const Register = () => {
 	};
 
 	const onSubmit = () => {
-		const teamID = values.teamID ? values.teamID : uuidv4();
-		fetch(`${REACT_APP_API_ENDPOINT}auth/register`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				user: {
-					userName: values.userName,
-					password: values.password,
-					email: values.email,
-					teamID,
-					role: values.role,
-					continent: values.continent,
-					region: values.region,
-				},
-			}),
-		})
-			.then((response) => response.json())
-			.then((data) =>
-				navigate(`/registered/${data?.result?.user?.teamID}`, {
-					replace: true,
-				})
-			);
-
-		alert();
+		POST_Register(values, navigate);
 	};
 
 	const formik = useFormik({ initialValues, validationSchema, onSubmit });
@@ -92,6 +59,10 @@ export const Register = () => {
 		handleBlur,
 		setFieldValue,
 	} = formik;
+
+	useEffect(() => {
+		GET_Data(setData);
+	}, []);
 
 	return (
 		<div className='big--container'>

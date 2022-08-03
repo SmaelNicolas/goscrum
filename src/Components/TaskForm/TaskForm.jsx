@@ -1,10 +1,9 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./taskForm.css";
-
-const { REACT_APP_API_ENDPOINT: API_ENDPOINT } = process.env;
+import { POST_TASK } from "../../APIs/fetchPOSTTask";
 
 export const TaskForm = () => {
 	const initialValues = {
@@ -24,21 +23,7 @@ export const TaskForm = () => {
 	});
 
 	const onSubmit = () => {
-		fetch(`${API_ENDPOINT}task`, {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: "Bearer " + localStorage.getItem("token"),
-			},
-			body: JSON.stringify({
-				task: values,
-			}),
-		})
-			.then((response) => response.json())
-			.then((data) => {
-				resetForm();
-				toast("Tu tarea se creo");
-			});
+		POST_TASK(values, resetForm);
 	};
 
 	const formik = useFormik({ initialValues, validationSchema, onSubmit });
