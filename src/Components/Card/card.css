@@ -1,11 +1,12 @@
 .card {
 	width: 250px;
-	min-height: 350px;
-	margin: 5px;
+	min-height: 380px;
+	margin: 10px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	box-shadow: 0px 4px 8px var(--clr--black--medium);
+	background-color: #bababa57;
 }
 .card--HIGH--NEW {
 	box-shadow: 0px 4px 8px red;
@@ -15,17 +16,26 @@
 	align-self: flex-end;
 	padding: 6px;
 	color: red;
-	border: 1px solid red;
+	border: none;
 	margin: 2px;
+	cursor: pointer;
+	font-size: var(--fs--m);
+}
+.card--label {
+	width: 80%;
+	font-size: var(--fs--xs);
+	border-bottom: 1px solid rgba(128, 128, 128, 0.541);
+	margin: 2px 0px;
 }
 .card--title {
-	width: 100%;
+	width: 90%;
 	text-align: center;
-	font-size: var(--fs--xl);
+	font-size: var(--fs--l);
 	text-transform: capitalize;
 	letter-spacing: 0.5px;
 	margin: 5px 0px;
 	cursor: default;
+	font-weight: 600;
 }
 .card--time {
 	width: 100%;
@@ -47,6 +57,7 @@
 	height: 35px;
 	margin: 5px 0px;
 	cursor: pointer;
+	transition: 0.1s all linear;
 }
 .NEW {
 	border: 1px solid blue;
@@ -76,8 +87,8 @@
 .card--description {
 	width: 200px;
 	min-height: 50px;
-	margin: 5px 0px;
-	padding-top: 10px;
+	margin-bottom: 5px;
+	padding-top: 2px;
 	text-align: start;
-	border-top: 1px solid rgba(128, 128, 128, 0.541);
+	overflow: hidden;
 }

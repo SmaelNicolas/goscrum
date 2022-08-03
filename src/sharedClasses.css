@@ -87,7 +87,7 @@
 	background-color: var(--clr--black--low);
 	cursor: not-allowed;
 }
-.button--send:hover {
+button:hover {
 	transition: 0.1s all linear;
 	transform: scale(1.05);
 }
