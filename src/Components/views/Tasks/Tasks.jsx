@@ -19,6 +19,8 @@ import {
 	getTasks,
 } from "../../../store/actions/tasksActions";
 
+import "./task.css";
+
 export const Tasks = () => {
 	const { isMobile } = useResize();
 	const [list, setList] = useState([]);
@@ -147,14 +149,12 @@ export const Tasks = () => {
 					<Skeleton />
 				) : isMobile ? (
 					<section>
-						<div id='list cards'>
-							<h4>EN TELEFONO</h4>
+						<div id='list cards' className='task--card--container'>
 							{renderAllCards()}
 						</div>
 					</section>
 				) : (
 					<section>
-						<h2>DESKTOP</h2>
 						<div>
 							<h4>Nuevas</h4>
 							{renderCardsByType("NEW")}
