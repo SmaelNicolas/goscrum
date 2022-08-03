@@ -1,0 +1,19 @@
+.taskForm--container {
+	width: 100%;
+	display: flex;
+
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+.task--form--section {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.form--input--task {
+	padding: 3px 2px;
+	width: 270px;
+}
