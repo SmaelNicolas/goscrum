@@ -24,7 +24,7 @@
 .card--label {
 	width: 80%;
 	font-size: var(--fs--xs);
-	border-bottom: 1px solid rgba(128, 128, 128, 0.541);
+	border-bottom: 1px solid var(--clr--grey--ligth);
 	margin: 2px 0px;
 }
 .card--title {
