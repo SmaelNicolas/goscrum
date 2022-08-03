@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux/es/exports";
+import "./header.css";
 
 export const Header = () => {
 	const navigate = useNavigate();
@@ -17,7 +18,7 @@ export const Header = () => {
 	});
 
 	return (
-		<header>
+		<header className='header'>
 			<span>Go Scrum</span>
 			<button onClick={() => navigate("/donate", { replace: true })}>
 				Donar
