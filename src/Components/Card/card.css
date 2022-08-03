@@ -1,0 +1,83 @@
+.card {
+	width: 250px;
+	min-height: 350px;
+	margin: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow: 0px 4px 8px var(--clr--black--medium);
+}
+.card--HIGH--NEW {
+	box-shadow: 0px 4px 8px red;
+	border: 1px solid red;
+}
+.card--delete {
+	align-self: flex-end;
+	padding: 6px;
+	color: red;
+	border: 1px solid red;
+	margin: 2px;
+}
+.card--title {
+	width: 100%;
+	text-align: center;
+	font-size: var(--fs--xl);
+	text-transform: capitalize;
+	letter-spacing: 0.5px;
+	margin: 5px 0px;
+	cursor: default;
+}
+.card--time {
+	width: 100%;
+	text-align: center;
+	font-size: var(--fs--s);
+	margin: 5px 0px;
+	cursor: default;
+}
+.card--user {
+	width: 100%;
+	text-align: center;
+	font-size: var(--fs--m);
+	margin: 5px 0px;
+	cursor: default;
+}
+.card--button {
+	padding: 5px;
+	width: 120px;
+	height: 35px;
+	margin: 5px 0px;
+	cursor: pointer;
+}
+.NEW {
+	border: 1px solid blue;
+	background-color: lightblue;
+}
+.IN {
+	border: 1px solid yellow;
+	background-color: gold;
+}
+.FINISHED {
+	border: 1px solid green;
+	background-color: lime;
+}
+.LOW {
+	border: 1px solid purple;
+	background-color: pink;
+}
+.MEDIUM {
+	border: 1px solid purple;
+	background-color: mediumpurple;
+}
+.HIGH {
+	border: 1px solid black;
+	background-color: red;
+	color: white;
+}
+.card--description {
+	width: 200px;
+	min-height: 50px;
+	margin: 5px 0px;
+	padding-top: 10px;
+	text-align: start;
+	border-top: 1px solid rgba(128, 128, 128, 0.541);
+}
