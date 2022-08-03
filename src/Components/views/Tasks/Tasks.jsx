@@ -34,6 +34,9 @@ export const Tasks = () => {
 	});
 
 	useEffect(() => {
+		if (tasks?.length) {
+			setList(tasks);
+		}
 		setListByType(tasks);
 	}, [tasks]);
 
@@ -97,7 +100,7 @@ export const Tasks = () => {
 			<h2 className='h2--title'>Mis Tareas</h2>
 			<div className='filters'>
 				<div className='tasks--filter'>
-					<div className='tasks--filter--label'>Filtrar por:</div>
+					<div className='tasks--filter--label'>Buscar :</div>
 					<FormControl>
 						<RadioGroup
 							column='true'
@@ -130,7 +133,7 @@ export const Tasks = () => {
 						onChange={(e) => {
 							handleSearch(e?.target?.value);
 						}}
-						className='form--input'
+						className='form--input  '
 					/>
 				</div>
 				<div className='tasks--filter'>
@@ -155,7 +158,7 @@ export const Tasks = () => {
 
 			{error ? (
 				<div>hay un error</div>
-			) : !list.length ? (
+			) : !listByType.length ? (
 				<div>No existen tareas creadas</div>
 			) : loading ? (
 				<Skeleton />
