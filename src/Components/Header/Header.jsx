@@ -8,7 +8,7 @@ import "./header.css";
 
 export const Header = () => {
 	const navigate = useNavigate();
-	const [user, setUser] = useState(localStorage.getItem("user"));
+	const [user] = useState(localStorage.getItem("user"));
 
 	const { isMobile } = useResize();
 
