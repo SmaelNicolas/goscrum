@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux/es/exports";
-import "./header.css";
 import { useResize } from "../../Hooks/useResize";
+import { MobileMenu } from "./MobileMenu/MobileMenu";
+import { DesktopMenu } from "./DesktopMenu/DesktopMenu";
+import "./header.css";
 
 export const Header = () => {
 	const navigate = useNavigate();
@@ -21,33 +23,8 @@ export const Header = () => {
 	});
 
 	return isMobile ? (
-		<header className='header'>
-			<span>Go Scrum</span>
-			<button onClick={() => navigate("/donate", { replace: true })}>
-				Donar
-			</button>
-			<div>
-				<div>{user}</div>
-				<button onClick={handleLogOut}>Cerrar Sesion</button>
-
-				<div>
-					Tareas creadas: {tasks?.length} <span></span>
-				</div>
-			</div>
-		</header>
+		<MobileMenu tasks={tasks} user={user} handleLogOut={handleLogOut} />
 	) : (
-		<header className='header'>
-			<span>Go Scrum</span>
-			<button onClick={() => navigate("/donate", { replace: true })}>
-				Donar
-			</button>
-			<div>
-				<div>{user}</div>
-				<button onClick={handleLogOut}>Cerrar Sesion</button>
-				<div>
-					Tareas creadas: {tasks?.length} <span></span>
-				</div>
-			</div>
-		</header>
+		<DesktopMenu tasks={tasks} user={user} handleLogOut={handleLogOut} />
 	);
 };
