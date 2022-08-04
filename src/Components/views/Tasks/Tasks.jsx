@@ -1,103 +1,46 @@
-import { useEffect, useState } from "react";
-import { useResize } from "../../../Hooks/useResize";
-import { Card } from "../../Card/Card";
+import { useState } from "react";
 import { Header } from "../../Header/Header";
 import { TaskForm } from "../../TaskForm/TaskForm";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import debounce from "lodash.debounce";
-import {
-	FormControl,
-	FormControlLabel,
-	Radio,
-	RadioGroup,
-} from "@mui/material";
-import { useSelector, useDispatch } from "react-redux";
-import {
-	deleteTask,
-	editTaskStatus,
-	getTasks,
-} from "../../../store/actions/tasksActions";
 
 import "./task.css";
+import { TaskViews } from "../../TaskViews/TaskViews";
 
 export const Tasks = () => {
-	const { isMobile } = useResize();
-	const [list, setList] = useState([]);
-	const [listByType, setListByType] = useState([]);
-	const [taskMadeBy, setTaskMAdeBy] = useState("ALL");
-	const [search, setSearch] = useState();
-	const dispatch = useDispatch();
+	const [user] = useState(localStorage.getItem("user"));
+	const [create, setCreate] = useState(false);
+	const [view, setView] = useState(false);
 
-	const { loading, error, tasks } = useSelector((state) => {
-		return state.taskReducer;
-	});
-
-	useEffect(() => {
-		if (tasks?.length) {
-			setList(tasks);
-		}
-		setListByType(tasks);
-	}, [tasks]);
-
-	useEffect(() => {
-		dispatch(getTasks(taskMadeBy === "ME" ? "me" : ""));
-	}, [taskMadeBy]);
-
-	useEffect(() => {
-		if (search) {
-			setListByType(
-				list.filter((task) => task.title.toLowerCase().includes(search))
-			);
-		} else {
-			setListByType(list);
-		}
-	}, [search]);
-
-	const handleDelete = (id) => dispatch(deleteTask(id));
-	const handleEditStatus = (data) => dispatch(editTaskStatus(data));
-
-	const renderAllCards = () => {
-		return listByType?.map((data) => (
-			<Card
-				deleteTask={handleDelete}
-				key={data._id}
-				data={data}
-				editTasksStatus={handleEditStatus}
-			/>
-		));
+	const viewCreate = () => {
+		setCreate(true);
+		setView(false);
 	};
-
-	const renderCardsByType = (value) => {
-		return listByType
-			?.filter((card) => card.status === value)
-			.map((data) => (
-				<Card
-					deleteTask={handleDelete}
-					key={data._id}
-					data={data}
-					editTasksStatus={handleEditStatus}
-				/>
-			));
+	const viewSearch = () => {
+		setCreate(false);
+		setView(true);
 	};
-
-	const handleChangeImportance = (importance) => {
-		importance !== "ALL"
-			? setListByType(
-					list.filter((task) => task.importance === importance)
-			  )
-			: setListByType(list);
-	};
-
-	const handleSearch = debounce((value) => {
-		setSearch(value);
-	}, 2000);
 
 	return (
 		<div className='big--container'>
 			<Header />
-			<TaskForm />
-			<h2 className='h2--title'>Mis Tareas</h2>
+			<div className='welcome--container'>
+				<div className='welcome--name'>Hola 🖐 {user}</div>
+				<div className='welcome--text'>¿Que queres realizar?</div>
+				<div className='welcome--panel'>
+					<div className='welcome--options' onClick={viewCreate}>
+						<div className='welcome--icons'>➕</div>
+						<div className='welcome--action'>crear tareas</div>
+					</div>
+					<div className='welcome--options' onClick={viewSearch}>
+						<div className='welcome--icons'>🔎</div>
+
+						<div className='welcome--action'>ver tareas</div>
+					</div>
+				</div>
+			</div>
+			{create && <TaskForm />}
+			{view && <TaskViews />}
+			{/* <h2 className='h2--title'>Ver Tareas</h2>
 			<div className='filters'>
 				<div className='tasks--filter'>
 					<div className='tasks--filter--label'>Buscar :</div>
@@ -157,9 +100,9 @@ export const Tasks = () => {
 			</div>
 
 			{error ? (
-				<div>hay un error</div>
+				<ApiError />
 			) : !listByType.length ? (
-				<div>No existen tareas creadas</div>
+				<NoTasksError />
 			) : loading ? (
 				<Skeleton />
 			) : isMobile ? (
@@ -183,7 +126,7 @@ export const Tasks = () => {
 						{renderCardsByType("FINISHED")}
 					</div>
 				</section>
-			)}
+			)} */}
 		</div>
 	);
 };
