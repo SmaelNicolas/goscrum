@@ -44,6 +44,7 @@ font-family: "Montserrat", sans-serif; */
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+	position: relative;
 }
 
 .page {
