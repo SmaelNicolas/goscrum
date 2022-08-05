@@ -1,4 +1,4 @@
-import { TASK_REQUEST, TASK_SUCCESS, TASK_FAILURE } from "../types";
+import { TASK_REQUEST, TASK_SUCCESS, TASK_FAILURE, LOGOUT } from "../types";
 
 const initialState = {
 	loading: false,
@@ -25,6 +25,12 @@ export const taskReducer = (state = initialState, action) => {
 				loading: false,
 				error: action.payload,
 				tasks: [],
+			};
+		case LOGOUT:
+			return {
+				loading: false,
+				error: "",
+				task: [],
 			};
 		default:
 			return state;
