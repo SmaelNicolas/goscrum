@@ -20,6 +20,10 @@ import {
 	getTasks,
 } from "../../store/actions/tasksActions";
 
+import "./taskView.css";
+import { MobileView } from "./MobileView/MobileView";
+import { DesktopView } from "./DesktopView/DesktopView";
+
 export const TaskViews = () => {
 	const { isMobile } = useResize();
 
@@ -71,17 +75,6 @@ export const TaskViews = () => {
 
 	const handleDelete = (id) => dispatch(deleteTask(id));
 	const handleEditStatus = (data) => dispatch(editTaskStatus(data));
-
-	const renderAllCards = () => {
-		return listByType?.map((data) => (
-			<Card
-				deleteTask={handleDelete}
-				key={data._id}
-				data={data}
-				editTasksStatus={handleEditStatus}
-			/>
-		));
-	};
 
 	const renderCardsByType = (value) => {
 		return listByType
@@ -163,26 +156,9 @@ export const TaskViews = () => {
 			) : loading ? (
 				<Skeleton />
 			) : isMobile ? (
-				<section>
-					<div id='list cards' className='task--card--container'>
-						{renderAllCards()}
-					</div>
-				</section>
+				<MobileView renderCardsByType={renderCardsByType} />
 			) : (
-				<section>
-					<div>
-						<h4>Nuevas</h4>
-						{renderCardsByType("NEW")}
-					</div>
-					<div>
-						<h4>En Progreso</h4>
-						{renderCardsByType("IN PROGRESS")}
-					</div>
-					<div>
-						<h4>Finalizadas</h4>
-						{renderCardsByType("FINISHED")}
-					</div>
-				</section>
+				<DesktopView renderCardsByType={renderCardsByType} />
 			)}
 		</>
 	);
