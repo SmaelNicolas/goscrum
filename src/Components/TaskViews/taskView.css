@@ -1,0 +1,35 @@
+.title--progress {
+	background-color: var(--clr--grey--ligth);
+	padding: 2px 0px;
+	font-size: var(--fs--xl);
+	width: 100%;
+	text-align: center;
+	margin: 15px 0px;
+	cursor: default;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.title--progress--text {
+	width: 50%;
+	margin-right: 25px;
+}
+
+.cards--container--desktop {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.cards--container--progress {
+	width: 30%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+}
