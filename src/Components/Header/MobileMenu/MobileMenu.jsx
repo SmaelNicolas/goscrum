@@ -31,7 +31,7 @@ export const MobileMenu = ({ tasks, user, handleLogOut }) => {
 					/>
 					<div className='header--mobile--user'>✅ {user}</div>
 					<div className='header--mobile--countTasks'>
-						🔢 Tareas creadas: {tasks?.length} <span></span>
+						🔢 Tareas creadas: {tasks?.length ?? 0} <span></span>
 					</div>
 					<button
 						onClick={() => navigate("/donate", { replace: true })}

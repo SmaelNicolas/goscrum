@@ -16,7 +16,7 @@ export const DesktopMenu = ({ user, tasks, handleLogOut }) => {
 			</button>
 			<div className='header--desktop--user'>✅ {user}</div>
 			<div className='header--desktop--countTasks'>
-				🔢 Tareas creadas: {tasks?.length} <span></span>
+				🔢 Tareas creadas: {tasks?.length ?? 0} <span></span>
 			</div>
 			<button className='header--button--logout' onClick={handleLogOut}>
 				Cerrar Sesion
