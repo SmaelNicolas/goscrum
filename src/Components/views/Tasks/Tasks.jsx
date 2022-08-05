@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Header } from "../../Header/Header";
 import { TaskForm } from "../../TaskForm/TaskForm";
 import "react-loading-skeleton/dist/skeleton.css";
 
 import "./task.css";
 import { TaskViews } from "../../TaskViews/TaskViews";
+import { getTasks } from "../../../store/actions/tasksActions";
+import { useDispatch } from "react-redux";
 
 export const Tasks = () => {
+	const dispatch = useDispatch();
+
 	const [user] = useState(localStorage.getItem("user"));
 	const [create, setCreate] = useState(false);
 	const [view, setView] = useState(false);
@@ -19,6 +23,11 @@ export const Tasks = () => {
 		setCreate(false);
 		setView(true);
 	};
+
+	useEffect(() => {
+		dispatch(getTasks(""));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
 		<div className='big--container'>
@@ -40,93 +49,6 @@ export const Tasks = () => {
 			</div>
 			{create && <TaskForm />}
 			{view && <TaskViews />}
-			{/* <h2 className='h2--title'>Ver Tareas</h2>
-			<div className='filters'>
-				<div className='tasks--filter'>
-					<div className='tasks--filter--label'>Buscar :</div>
-					<FormControl>
-						<RadioGroup
-							column='true'
-							aria-labelledby='demo-row-radio-buttons-group-label'
-							className='tasks--filter--created'
-							onChange={(e) => {
-								setTaskMAdeBy(e.currentTarget.value);
-							}}
-						>
-							<FormControlLabel
-								value='ALL'
-								control={<Radio />}
-								label='Creadas por mi grupo'
-							/>
-							<FormControlLabel
-								value='ME'
-								control={<Radio />}
-								label='Creadas por mi'
-							/>
-						</RadioGroup>
-					</FormControl>
-				</div>
-				<div className='tasks--filter'>
-					<div className='tasks--filter--label'>
-						Buscar por titulo
-					</div>
-					<input
-						type='text'
-						placeholder='Buscar por titulo ...'
-						onChange={(e) => {
-							handleSearch(e?.target?.value);
-						}}
-						className='form--input  '
-					/>
-				</div>
-				<div className='tasks--filter'>
-					<div className='tasks--filter--label'>
-						Buscar por prioridad
-					</div>
-
-					<select
-						name='importance'
-						onChange={(e) => {
-							handleChangeImportance(e.currentTarget.value);
-						}}
-						className='task--filter--priority'
-					>
-						<option value='ALL'>Todas</option>
-						<option value='LOW'>Baja</option>
-						<option value='MEDIUM'>Media</option>
-						<option value='HIGH'>Alta</option>
-					</select>
-				</div>
-			</div>
-
-			{error ? (
-				<ApiError />
-			) : !listByType.length ? (
-				<NoTasksError />
-			) : loading ? (
-				<Skeleton />
-			) : isMobile ? (
-				<section>
-					<div id='list cards' className='task--card--container'>
-						{renderAllCards()}
-					</div>
-				</section>
-			) : (
-				<section>
-					<div>
-						<h4>Nuevas</h4>
-						{renderCardsByType("NEW")}
-					</div>
-					<div>
-						<h4>En Progreso</h4>
-						{renderCardsByType("IN PROGRESS")}
-					</div>
-					<div>
-						<h4>Finalizadas</h4>
-						{renderCardsByType("FINISHED")}
-					</div>
-				</section>
-			)} */}
 		</div>
 	);
 };
