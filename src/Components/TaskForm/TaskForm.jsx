@@ -16,7 +16,10 @@ export const TaskForm = () => {
 	const requiered = "* Campo Obligatorio";
 
 	const validationSchema = Yup.object().shape({
-		title: Yup.string().min(4, "Minimo 4 caracteres").required(requiered),
+		title: Yup.string()
+			.min(4, "Minimo 4 caracteres")
+			.max(13, "Maximo 13 caracteres")
+			.required(requiered),
 		status: Yup.string().required(requiered),
 		importance: Yup.string().required(requiered),
 		description: Yup.string().required(requiered),
