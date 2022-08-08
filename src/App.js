@@ -6,7 +6,6 @@ import { Tasks } from "./Components/views/Tasks/Tasks";
 
 // https://www.framer.com/motion/
 import { AnimatePresence, motion } from "framer-motion";
-import { Registered } from "./Components/views/Registered/Registered";
 import { Donate } from "./Components/views/Donate/Donate";
 
 // CSS
@@ -64,20 +63,6 @@ export const App = () => {
 								variant={pageTransition}
 							>
 								<Login />
-							</motion.div>
-						}
-					/>
-					<Route
-						path='/registered/:teamID'
-						element={
-							<motion.div
-								className='page'
-								initial='out'
-								animate='in'
-								exit='out'
-								variant={pageTransition}
-							>
-								<Registered />
 							</motion.div>
 						}
 					/>
