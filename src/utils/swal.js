@@ -11,15 +11,16 @@ export const swal = () =>
 		timerProgressBar: true,
 	});
 
-export const swalAccountCreated = (team, navigate) => {
+export const swalAccountCreated = (team, user, navigate) => {
 	Swal.fire({
-		title: `Team ID: ${team}`,
-		confirmButtonText: "Continuar",
-	}).then((result) => {
-		if (result.isConfirmed) {
-			navigate(`/login`, {
-				replace: true,
-			});
-		}
-	});
+		position: "center",
+		icon: "success",
+		title: `Usuario ${user} creado correctamente `,
+		text: `Team ID : ${team}`,
+		showConfirmButton: true,
+	}).then(
+		navigate(`/login`, {
+			replace: true,
+		})
+	);
 };

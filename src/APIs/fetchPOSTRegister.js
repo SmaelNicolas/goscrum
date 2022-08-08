@@ -24,6 +24,10 @@ export const POST_Register = (values, navigate) => {
 	})
 		.then((response) => response.json())
 		.then((data) => {
-			swalAccountCreated(data?.result?.user?.teamID, navigate);
+			swalAccountCreated(
+				data?.result?.user?.teamID,
+				values.userName,
+				navigate
+			);
 		});
 };
