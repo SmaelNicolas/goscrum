@@ -9,6 +9,7 @@ import "./register.css";
 
 export const Register = () => {
 	const [data, setData] = useState();
+
 	const navigate = useNavigate();
 
 	const initialValues = {

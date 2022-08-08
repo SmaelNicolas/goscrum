@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
+import { swalAccountCreated } from "../utils/swal";
 const { REACT_APP_API_ENDPOINT: API_ENDPOINT } = process.env;
 
 export const POST_Register = (values, navigate) => {
@@ -22,10 +23,7 @@ export const POST_Register = (values, navigate) => {
 		}),
 	})
 		.then((response) => response.json())
-		.then((data) =>
-			navigate(`/registered/${data?.result?.user?.teamID}`, {
-				replace: true,
-			})
-		);
-	alert("Usuario creado correctamente");
+		.then((data) => {
+			swalAccountCreated(data?.result?.user?.teamID, navigate);
+		});
 };
