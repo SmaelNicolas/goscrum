@@ -1,0 +1,25 @@
+.donate--container {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.donate--link {
+	background-color: var(--clr--attention);
+	padding: 10px 25px;
+	text-decoration: none;
+	font-weight: 800;
+	letter-spacing: 0.8px;
+}
+
+.donate--link:hover {
+	transition: 0.1s all linear;
+	transform: scale(1.05);
+}
+
+.donate--img {
+	width: 320px;
+}
