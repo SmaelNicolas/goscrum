@@ -1,5 +1,10 @@
-import React from "react";
+import "./screenErrors.css";
 
 export const NoTasksError = () => {
-	return <div>No hay tareas creadas</div>;
+	return (
+		<div className='error--container'>
+			<div>❌</div>
+			<div>No existen tareas creadas!</div>
+		</div>
+	);
 };
