@@ -30,6 +30,7 @@ font-family: "Montserrat", sans-serif; */
 	padding: 0;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
+	font-family: var(--ff--rbt);
 }
 
 *:focus,
