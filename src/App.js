@@ -2,7 +2,6 @@ import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Login } from "./Components/views/Auth/Login/Login";
 import { Register } from "./Components/views/Auth/Register/Register";
-// import { Error404 } from "./Components/views/Error404/Error404";
 import { Tasks } from "./Components/views/Tasks/Tasks";
 
 // https://www.framer.com/motion/
@@ -13,7 +12,7 @@ import { Donate } from "./Components/views/Donate/Donate";
 // CSS
 import "./sharedClasses.css";
 
-const Error404 = lazy(() => import("./Components/views/Error404/Error404"));
+const Error404 = lazy(() => import("./Components/ScreenErrors/Error404"));
 
 const RequireAuth = ({ children }) => {
 	if (!localStorage.getItem("token")) {
