@@ -1,7 +1,14 @@
 import { DELETE_TASK } from "../../APIs/fetchDELETETask";
 import { GET_TASKS } from "../../APIs/fetchGETTasks";
+import { POST_TASK } from "../../APIs/fetchPOSTTask";
 import { UPDATE_TASK } from "../../APIs/fetchUPDATETask";
-import { TASK_REQUEST, TASK_SUCCESS, TASK_FAILURE, LOGOUT } from "../types";
+import {
+	TASK_REQUEST,
+	TASK_SUCCESS,
+	TASK_FAILURE,
+	LOGOUT,
+	TASK_POSTED,
+} from "../types";
 
 export const tasksRequest = () => ({
 	type: TASK_REQUEST,
@@ -17,6 +24,10 @@ export const tasksFailure = (error) => ({
 });
 export const tasksLogout = () => ({
 	type: LOGOUT,
+	payload: "",
+});
+export const taskPosted = () => ({
+	type: TASK_POSTED,
 	payload: "",
 });
 
@@ -37,4 +48,9 @@ export const editTaskStatus = (data) => (dispatch) => {
 
 export const logout = (data) => (dispatch) => {
 	dispatch(tasksLogout());
+};
+
+export const postTask = (values, resetForm) => (dispatch) => {
+	dispatch(taskPosted());
+	POST_TASK(values, resetForm);
 };

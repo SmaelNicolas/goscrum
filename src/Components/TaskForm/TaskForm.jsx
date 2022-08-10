@@ -1,11 +1,14 @@
+import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./taskForm.css";
-import { POST_TASK } from "../../APIs/fetchPOSTTask";
+import { postTask } from "../../store/actions/tasksActions";
 
 export const TaskForm = () => {
+	const dispatch = useDispatch();
+
 	const initialValues = {
 		title: "",
 		status: "",
@@ -26,7 +29,7 @@ export const TaskForm = () => {
 	});
 
 	const onSubmit = () => {
-		POST_TASK(values, resetForm);
+		dispatch(postTask(values, resetForm));
 	};
 
 	const formik = useFormik({ initialValues, validationSchema, onSubmit });
