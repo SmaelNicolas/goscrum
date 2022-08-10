@@ -19,8 +19,8 @@ export const Card = ({
 	const [showMore, setShowMore] = useState(false);
 
 	const reduceString = (str) => {
-		return str.length > 110
-			? { string: str.slice(0, 107).concat("..."), addButton: true }
+		return str.length > 100
+			? { string: str.slice(0, 97).concat("..."), addButton: true }
 			: { string: str, addButton: false };
 	};
 
