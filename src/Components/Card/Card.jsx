@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
 import "./card.css";
 
 export const Card = ({
 	deleteTask,
 	editTasksStatus,
+	editTasksImportance,
 	data,
 	data: {
 		_id,
@@ -31,7 +33,7 @@ export const Card = ({
 					className='card--delete'
 					onClick={() => deleteTask(_id)}
 				>
-					X
+					<AiOutlineClose />
 				</button>
 			)}
 			<div className='card--title'>{title}</div>
@@ -49,7 +51,11 @@ export const Card = ({
 			</button>
 			<label className='card--label'>Importancia </label>
 
-			<button className={`card--button ${importance}`} type='button'>
+			<button
+				className={`card--button ${importance}`}
+				type='button'
+				onClick={() => editTasksImportance(data)}
+			>
 				{importance}
 			</button>
 			<label className='card--label'>Mensaje </label>
