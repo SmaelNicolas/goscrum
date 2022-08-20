@@ -65,12 +65,14 @@
 	--clr--grey--ligth: rgba(128, 128, 128, 0.541);
 
 	--fs--primary: 1rem;
+	--fs--xxs: 0.4rem;
 	--fs--xs: 0.6rem;
 	--fs--s: 0.8rem;
 	--fs--m: 1.2rem;
 	--fs--l: 1.4rem;
 	--fs--xl: 1.6rem;
 	--fs--xxl: 1.8rem;
+	--fs--xxxl: 2rem;
 }
 
 * {
