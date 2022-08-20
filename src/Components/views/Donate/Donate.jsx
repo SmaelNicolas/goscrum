@@ -1,13 +1,14 @@
 import React from "react";
+import { FaDonate } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+
 import "./donate.css";
-import imgDonate from "../../../assets/donate.jpg";
 
 export const Donate = () => {
 	const navigate = useNavigate();
 	return (
 		<div className='donate--container'>
-			<h2 className='h2--title'>Colabora con nosotros</h2>
+			<h2 className='donate--title'>Colabora con nosotros</h2>
 			<a
 				className='donate--link'
 				href='https://mpago.la/1haC6Zw'
@@ -16,9 +17,9 @@ export const Donate = () => {
 			>
 				Donar
 			</a>
-			<img className='donate--img' src={imgDonate} alt='donate' />
+			<FaDonate className='donate--icon' />
 			<button
-				className='header--button--donate'
+				className='header--button--donate donate--back'
 				onClick={() => navigate("/", { replace: true })}
 			>
 				Volver a Tareas
