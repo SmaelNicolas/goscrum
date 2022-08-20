@@ -34,7 +34,7 @@ export const Register = () => {
 				.required(requiered),
 			password: Yup.string().required(requiered),
 			email: Yup.string()
-				.email("Debe ser un email valido")
+				.email("Debe ser un email válido")
 				.required(requiered),
 			// teamID: Yup.string().required(requiered),
 			role: Yup.string().required(requiered),
@@ -192,7 +192,7 @@ export const Register = () => {
 				</div>
 				{values.continent === "America" && (
 					<div className='register--form--section'>
-						<label className='register--form--label'>Region</label>
+						<label className='register--form--label'>Región</label>
 						<select
 							name='region'
 							value={values.region}
@@ -213,11 +213,13 @@ export const Register = () => {
 						</select>
 					</div>
 				)}
-				<div className='form--input--error'>
-					{errors.region && touched.region && (
-						<div>{errors.region}</div>
-					)}
-				</div>
+				{values.continent === "America" && (
+					<div className='form--input--error'>
+						{errors.region && touched.region && (
+							<div>{errors.region}</div>
+						)}
+					</div>
+				)}
 
 				<div className='register--form--section--switch'>
 					<FormControlLabel
@@ -266,7 +268,7 @@ export const Register = () => {
 					</button>
 				</div>
 				<div className='register--form--help--text'>
-					¿Ya tenes una cuenta?
+					¿Ya tienes una cuenta?
 				</div>
 
 				<div>

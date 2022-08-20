@@ -92,7 +92,7 @@ export const Login = () => {
 					</button>
 				</div>
 				<div className='login--form--help--text'>
-					¿No tenes una cuenta?
+					¿No tienes una cuenta?
 				</div>
 				<div>
 					<Link to='/register' className='login--link--othersection'>
