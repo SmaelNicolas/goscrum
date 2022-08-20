@@ -1,3 +1,57 @@
+.filters {
+	min-width: 310px;
+	max-width: 400px;
+	margin: 10px 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.tasks--filter {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid var(--clr--blue--dark);
+	min-height: 50px;
+	margin: 10px 0;
+}
+
+.tasks--filter--created {
+	width: 100%;
+	text-align: end;
+	color: var(--clr--blue--lighter);
+	font-family: var(--ff--ss--thin);
+}
+
+.css-1hbvpl3-MuiSvgIcon-root {
+	color: var(--clr--blue--lighter);
+}
+
+.MuiFormControlLabel-label {
+	color: var(--clr--blue--light) !important;
+	font-family: var(--ff--ss--regular) !important;
+	text-transform: capitalize;
+	font-size: var(--fs--primary) !important;
+}
+
+.tasks--filter--label {
+	text-align: start;
+	text-transform: capitalize;
+	color: var(--clr--blue--lighter);
+	font-family: var(--ff--ss--thin);
+}
+
+.task--form--input {
+	padding: 5px 5px;
+	width: 200px;
+	background-color: var(--clr--blue--light);
+	color: var(--clr--blue--darker);
+	font-family: var(--ff--ss--bold);
+	letter-spacing: 0.5px;
+}
+
 .title--progress {
 	background-color: var(--clr--grey--ligth);
 	padding: 2px 0px;

@@ -7,22 +7,22 @@ import {
 	RadioGroup,
 } from "@mui/material";
 
-import Skeleton from "react-loading-skeleton";
-import { ApiError } from "../ScreenErrors/ApiError";
-import { NoTasksError } from "../ScreenErrors/NoTasksError";
-import { useResize } from "../../Hooks/useResize";
 import debounce from "lodash.debounce";
-import { Card } from "../Card/Card";
-import { useSelector, useDispatch } from "react-redux";
+import Skeleton from "react-loading-skeleton";
+import { useDispatch, useSelector } from "react-redux";
+import { useResize } from "../../Hooks/useResize";
 import {
 	deleteTask,
 	editTaskStatus,
 	getTasks,
 } from "../../store/actions/tasksActions";
+import { Card } from "../Card/Card";
+import { ApiError } from "../ScreenErrors/ApiError";
+import { NoTasksError } from "../ScreenErrors/NoTasksError";
 
-import "./taskView.css";
-import { MobileView } from "./MobileView/MobileView";
 import { DesktopView } from "./DesktopView/DesktopView";
+import { MobileView } from "./MobileView/MobileView";
+import "./taskView.css";
 
 export const TaskViews = () => {
 	const { isMobile } = useResize();
@@ -93,7 +93,7 @@ export const TaskViews = () => {
 		<>
 			<div className='filters'>
 				<div className='tasks--filter'>
-					<div className='tasks--filter--label'>Buscar :</div>
+					<div className='tasks--filter--label'>Buscar</div>
 					<FormControl>
 						<RadioGroup
 							column='true'
@@ -122,11 +122,10 @@ export const TaskViews = () => {
 					</div>
 					<input
 						type='text'
-						placeholder='Buscar por titulo ...'
 						onChange={(e) => {
 							handleSearch(e?.target?.value);
 						}}
-						className='form--input  '
+						className='task--form--input '
 					/>
 				</div>
 				<div className='tasks--filter'>
@@ -139,7 +138,7 @@ export const TaskViews = () => {
 						onChange={(e) => {
 							handleChangeImportance(e.currentTarget.value);
 						}}
-						className='task--filter--priority'
+						className='task--form--input'
 					>
 						<option value='ALL'>Todas</option>
 						<option value='LOW'>Baja</option>
