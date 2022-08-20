@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
+import UserImg from "../../../../assets/user.svg";
 
 import { POST_Login } from "../../../../APIs/fetchPOSTLogin";
 import "./login.css";
@@ -35,18 +36,25 @@ export const Login = () => {
 		formik;
 
 	return (
-		<div className='big--container positionRelative'>
-			<h1 className='h1--title'>Iniciar Sesión</h1>
-			<form onSubmit={handleSubmit} className='form--container'>
+		<div className='login '>
+			<h1 className='login--title'>Iniciar Sesión</h1>
+			<form onSubmit={handleSubmit} className='login--container'>
+				<div className='login--icon'>
+					<img
+						className='login--icon--img'
+						src={UserImg}
+						alt='user icon'
+					/>
+				</div>
 				<div className='login--form--section'>
-					<label className='form--label'>Usuario</label>
+					<label className='login--label'>Usuario</label>
 					<input
 						type='text'
 						name='userName'
 						onChange={handleChange}
 						value={values.userName}
 						onBlur={handleBlur}
-						className={`form--input ${
+						className={`login--form--input ${
 							errors.userName
 								? "form--input--incorrect"
 								: "form--input--correct"
@@ -59,14 +67,14 @@ export const Login = () => {
 					)}
 				</div>
 				<div className='login--form--section'>
-					<label className='form--label'>Contraseña</label>
+					<label className='login--label'>Contraseña</label>
 					<input
 						type='password'
 						name='password'
 						onChange={handleChange}
 						value={values.password}
 						onBlur={handleBlur}
-						className={`form--input ${
+						className={`login--form--input ${
 							errors.password
 								? "form--input--incorrect"
 								: "form--input--correct"
@@ -79,13 +87,15 @@ export const Login = () => {
 					)}
 				</div>
 				<div>
-					<button type='submit' className='button--send'>
+					<button type='submit' className='login--button--send'>
 						Enviar
 					</button>
 				</div>
-				<div className='form--help--text'>¿No tenes una cuenta?</div>
+				<div className='login--form--help--text'>
+					¿No tenes una cuenta?
+				</div>
 				<div>
-					<Link to='/register' className='link--othersection'>
+					<Link to='/register' className='login--link--othersection'>
 						Registrarme
 					</Link>
 				</div>
