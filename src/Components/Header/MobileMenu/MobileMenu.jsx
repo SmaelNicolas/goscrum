@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Logo from "../../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../../assets/logo.png";
 
 export const MobileMenu = ({ tasks, user, handleLogOut }) => {
 	const [click, setClick] = useState(false);
@@ -29,7 +29,7 @@ export const MobileMenu = ({ tasks, user, handleLogOut }) => {
 						src={Logo}
 						alt='goScrum app logo'
 					/>
-					<div className='header--mobile--user'>✅ {user}</div>
+					<div className='header--mobile--user'>👤 {user}</div>
 					<div className='header--mobile--countTasks'>
 						🔢 Tareas creadas: {tasks?.length ?? 0} <span></span>
 					</div>

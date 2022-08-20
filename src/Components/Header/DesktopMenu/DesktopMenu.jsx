@@ -14,7 +14,7 @@ export const DesktopMenu = ({ user, tasks, handleLogOut }) => {
 			>
 				Donar
 			</button>
-			<div className='header--desktop--user'>✅ {user}</div>
+			<div className='header--desktop--user'>👤 {user}</div>
 			<div className='header--desktop--countTasks'>
 				🔢 Tareas creadas: {tasks?.length ?? 0} <span></span>
 			</div>
