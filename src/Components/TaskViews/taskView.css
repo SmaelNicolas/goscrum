@@ -1,6 +1,6 @@
 .filters {
 	min-width: 310px;
-	max-width: 400px;
+	max-width: 500px;
 	margin: 10px 5px;
 	display: flex;
 	flex-direction: column;
@@ -113,4 +113,15 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: flex-start;
+}
+
+@media only screen and (max-width: 400px) {
+	.tasks--filter {
+		flex-direction: column;
+		padding-bottom: 5px;
+	}
+	.tasks--filter--label {
+		width: 200px;
+		margin-bottom: 10px;
+	}
 }

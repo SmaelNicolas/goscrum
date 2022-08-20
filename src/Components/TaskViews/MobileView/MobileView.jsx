@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 
-export const MobileView = ({ renderCardsByType }) => {
+export const MobileView = ({ renderCardsByType, checkList }) => {
 	const [showNew, setShowNew] = useState(true);
 	const [showProgress, setShowProgress] = useState(true);
 	const [showFinished, setShowFinished] = useState(true);
@@ -19,7 +19,10 @@ export const MobileView = ({ renderCardsByType }) => {
 						Nuevas
 					</div>
 				</div>
-				{showNew && renderCardsByType("NEW")}
+				{showNew &&
+					(checkList("NEW")
+						? renderCardsByType("NEW")
+						: "No Existen Tareas!")}
 			</div>
 			<div className='task--card--types'>
 				<div
@@ -32,7 +35,10 @@ export const MobileView = ({ renderCardsByType }) => {
 						En Progreso
 					</div>
 				</div>
-				{showProgress && renderCardsByType("IN PROGRESS")}
+				{showProgress &&
+					(checkList("IN PROGRESS")
+						? renderCardsByType("IN PROGRESS")
+						: "No Existen Tareas!")}
 			</div>
 			<div className='task--card--types'>
 				<div
@@ -46,6 +52,10 @@ export const MobileView = ({ renderCardsByType }) => {
 					</div>
 				</div>
 				{showFinished && renderCardsByType("FINISHED")}
+				{showFinished &&
+					(checkList("FINISHED")
+						? renderCardsByType("FINISHED")
+						: "No Existen Tareas!")}
 			</div>
 		</section>
 	);

@@ -162,7 +162,10 @@ export const TaskViews = () => {
 			) : loading ? (
 				<Skeleton />
 			) : isMobile ? (
-				<MobileView renderCardsByType={renderCardsByType} />
+				<MobileView
+					renderCardsByType={renderCardsByType}
+					checkList={cardsWithStatus}
+				/>
 			) : (
 				<DesktopView
 					renderCardsByType={renderCardsByType}
