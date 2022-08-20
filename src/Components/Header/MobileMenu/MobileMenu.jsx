@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { BiUserCheck } from "react-icons/bi";
+import { BsListTask } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../../assets/logo.png";
 
@@ -29,9 +31,12 @@ export const MobileMenu = ({ tasks, user, handleLogOut }) => {
 						src={Logo}
 						alt='goScrum app logo'
 					/>
-					<div className='header--mobile--user'>👤 {user}</div>
-					<div className='header--mobile--countTasks'>
-						🔢 Tareas creadas: {tasks?.length ?? 0} <span></span>
+					<div className='header--mobile--info '>
+						<BiUserCheck className='header--desktop--icon' /> {user}
+					</div>
+					<div className='header--mobile--info '>
+						<BsListTask className='header--desktop--icon' />
+						Tareas creadas: {tasks?.length ?? 0}
 					</div>
 					<button
 						onClick={() => navigate("/donate", { replace: true })}

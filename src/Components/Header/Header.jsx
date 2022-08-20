@@ -1,12 +1,12 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useResize } from "../../Hooks/useResize";
-import { MobileMenu } from "./MobileMenu/MobileMenu";
 import { DesktopMenu } from "./DesktopMenu/DesktopMenu";
-import { useSelector, useDispatch } from "react-redux";
+import { MobileMenu } from "./MobileMenu/MobileMenu";
 
-import "./header.css";
 import { tasksLogout } from "../../store/actions/tasksActions";
+import "./header.css";
 
 export const Header = () => {
 	const dispatch = useDispatch();
