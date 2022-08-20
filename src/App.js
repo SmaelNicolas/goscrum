@@ -83,17 +83,9 @@ export const App = () => {
 					<Route
 						path='*'
 						element={
-							<motion.div
-								className='page'
-								initial='out'
-								animate='in'
-								exit='out'
-								variant={pageTransition}
-							>
-								<Suspense fallback={<>CARGANDOOOO...</>}>
-									<Error404 />
-								</Suspense>
-							</motion.div>
+							<Suspense fallback={<>CARGANDOOOO...</>}>
+								<Error404 />
+							</Suspense>
 						}
 					/>
 					<Route
