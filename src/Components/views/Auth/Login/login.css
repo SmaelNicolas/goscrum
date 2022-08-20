@@ -9,13 +9,14 @@
 }
 
 .login--title {
-	font-size: var(--fs--xxl);
 	width: 100%;
 	text-align: center;
 	margin-bottom: 55px;
 	cursor: default;
+	font-size: var(--fs--xxxl);
 	font-family: var(--ff--ss--medium);
 	color: var(--clr--blue--lighter);
+	text-transform: capitalize;
 }
 
 .login--icon {
@@ -66,6 +67,7 @@
 	font-size: var(--fs--primary);
 	font-weight: 900;
 	color: var(--clr--blue--lighter);
+	font-family: var(--ff--ss--light);
 }
 
 .login--form--input {
