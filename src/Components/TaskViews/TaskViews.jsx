@@ -92,6 +92,10 @@ export const TaskViews = () => {
 			));
 	};
 
+	const cardsWithStatus = (value) => {
+		return listByType?.some((card) => card.status === value);
+	};
+
 	return (
 		<>
 			<div className='filters'>
@@ -160,7 +164,10 @@ export const TaskViews = () => {
 			) : isMobile ? (
 				<MobileView renderCardsByType={renderCardsByType} />
 			) : (
-				<DesktopView renderCardsByType={renderCardsByType} />
+				<DesktopView
+					renderCardsByType={renderCardsByType}
+					checkList={cardsWithStatus}
+				/>
 			)}
 		</>
 	);
