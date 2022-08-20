@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./taskForm.css";
+import * as Yup from "yup";
 import { postTask } from "../../store/actions/tasksActions";
+import "./taskForm.css";
 
 export const TaskForm = () => {
 	const dispatch = useDispatch();
@@ -45,12 +45,11 @@ export const TaskForm = () => {
 	} = formik;
 
 	return (
-		<div className='big--container'>
-			<h2 className='h2--title'>Crear Tarea</h2>
-			<form onSubmit={handleSubmit} className='form--container'>
+		<div className='taskForm--container'>
+			<h2 className='taskForm--title'>nueva tarea</h2>
+			<form onSubmit={handleSubmit} className='task--form--container'>
 				<div className='task--form--section'>
-					<label className='form--label'>Titulo</label>
-
+					<label className='task--form--label'>Título</label>
 					<input
 						value={values.title}
 						name='title'
@@ -63,13 +62,13 @@ export const TaskForm = () => {
 						}`}
 					/>
 				</div>
-				<div className='form--input--error'>
+				<div className='taskForm--input--error'>
 					{errors.title && touched.title && (
 						<span>{errors.title}</span>
 					)}
 				</div>
 				<div className='task--form--section'>
-					<label className='form--label'>Status</label>
+					<label className='task--form--label'>Status</label>
 					<select
 						value={values.status}
 						name='status'
@@ -88,13 +87,13 @@ export const TaskForm = () => {
 						<option value='FINISHED'>Terminada</option>
 					</select>
 				</div>
-				<div className='form--input--error'>
+				<div className='taskForm--input--error'>
 					{errors.status && touched.status && (
 						<span>{errors.status}</span>
 					)}
 				</div>
 				<div className='task--form--section'>
-					<label className='form--label'>Prioridad</label>
+					<label className='task--form--label'>Prioridad</label>
 					<select
 						value={values.importance}
 						name='importance'
@@ -113,13 +112,13 @@ export const TaskForm = () => {
 						<option value='HIGH'>Alta</option>
 					</select>
 				</div>
-				<div className='form--input--error'>
+				<div className='taskForm--input--error'>
 					{errors.importance && touched.importance && (
 						<span>{errors.importance}</span>
 					)}
 				</div>
 				<div className='task--form--section'>
-					<label className='form--label'>Descripción</label>
+					<label className='task--form--label'>Descripción</label>
 					<textarea
 						name='description'
 						id=''
@@ -135,14 +134,16 @@ export const TaskForm = () => {
 						}`}
 					/>
 				</div>
-				<div className='form--input--error'>
+				<div className='taskForm--input--error'>
 					{errors.description && touched.description && (
 						<span>{errors.description}</span>
 					)}
 				</div>
-				<button type='submit' className='button--send'>
-					Crear
-				</button>
+				<div className='task--form--section'>
+					<button type='submit' className='taskForm--button--send'>
+						Crear
+					</button>
+				</div>
 			</form>
 			<ToastContainer />
 		</div>
