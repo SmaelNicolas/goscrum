@@ -41,6 +41,7 @@
 	text-transform: capitalize;
 	color: var(--clr--blue--lighter);
 	font-family: var(--ff--ss--thin);
+	padding-right: 5px;
 }
 
 .task--form--input {
@@ -50,15 +51,18 @@
 	color: var(--clr--blue--darker);
 	font-family: var(--ff--ss--bold);
 	letter-spacing: 0.5px;
+	border: none;
 }
 
 .title--progress {
-	background-color: var(--clr--grey--ligth);
+	width: 100%;
+	margin: 15px 0px;
 	padding: 2px 0px;
 	font-size: var(--fs--xl);
-	width: 100%;
+	background-color: var(--clr--blue--lighter);
+	color: var(--clr--blue--darker);
+	font-family: var(--ff--ss--light);
 	text-align: center;
-	margin: 15px 0px;
 	cursor: default;
 	display: flex;
 	flex-direction: row;
@@ -67,20 +71,43 @@
 }
 
 .title--progress--text {
-	width: 50%;
-	margin-right: 25px;
+	width: 180px;
+	text-align: start;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--clr--blue--darker);
+	font-family: var(--ff--ss--light);
+	cursor: pointer;
 }
 
 .cards--container--desktop {
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: flex-start;
 }
 
 .cards--container--progress {
 	width: 30%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+}
+.tasks--cards--container {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.task--card--types {
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;

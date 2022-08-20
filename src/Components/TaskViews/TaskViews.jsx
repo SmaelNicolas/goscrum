@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useResize } from "../../Hooks/useResize";
 import {
 	deleteTask,
+	editTaskImportance,
 	editTaskStatus,
 	getTasks,
 } from "../../store/actions/tasksActions";
@@ -75,6 +76,7 @@ export const TaskViews = () => {
 
 	const handleDelete = (id) => dispatch(deleteTask(id));
 	const handleEditStatus = (data) => dispatch(editTaskStatus(data));
+	const handleEditImportance = (data) => dispatch(editTaskImportance(data));
 
 	const renderCardsByType = (value) => {
 		return listByType
@@ -85,6 +87,7 @@ export const TaskViews = () => {
 					key={data._id}
 					data={data}
 					editTasksStatus={handleEditStatus}
+					editTasksImportance={handleEditImportance}
 				/>
 			));
 	};

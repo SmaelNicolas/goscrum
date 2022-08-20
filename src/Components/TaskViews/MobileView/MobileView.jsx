@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
 
 export const MobileView = ({ renderCardsByType }) => {
 	const [showNew, setShowNew] = useState(true);
@@ -6,37 +7,43 @@ export const MobileView = ({ renderCardsByType }) => {
 	const [showFinished, setShowFinished] = useState(true);
 
 	return (
-		<section className='big--container'>
-			<div className='task--card--container'>
+		<section className='tasks--cards--container'>
+			<div className='task--card--types'>
 				<div
 					className='title--progress'
 					onClick={() => setShowNew(!showNew)}
 				>
-					<div className='title--progress--text'>Nuevas</div>
-					{showNew && <div>🔽</div>}
-					{!showNew && <div>🔼</div>}
+					<div className='title--progress--text'>
+						{showNew && <AiOutlineArrowDown />}
+						{!showNew && <AiOutlineArrowUp />}
+						Nuevas
+					</div>
 				</div>
 				{showNew && renderCardsByType("NEW")}
 			</div>
-			<div className='task--card--container'>
+			<div className='task--card--types'>
 				<div
 					className='title--progress'
 					onClick={() => setShowProgress(!showProgress)}
 				>
-					<div className='title--progress--text'>En Progreso</div>
-					{showProgress && <div>🔽</div>}
-					{!showProgress && <div>🔼</div>}
+					<div className='title--progress--text'>
+						{showProgress && <AiOutlineArrowDown />}
+						{!showProgress && <AiOutlineArrowUp />}
+						En Progreso
+					</div>
 				</div>
 				{showProgress && renderCardsByType("IN PROGRESS")}
 			</div>
-			<div className='task--card--container'>
+			<div className='task--card--types'>
 				<div
 					className='title--progress'
 					onClick={() => setShowFinished(!showFinished)}
 				>
-					<div className='title--progress--text'>Finalizadas</div>
-					{showFinished && <div>🔽</div>}
-					{!showFinished && <div>🔼</div>}
+					<div className='title--progress--text'>
+						{showFinished && <AiOutlineArrowDown />}
+						{!showFinished && <AiOutlineArrowUp />}
+						Finalizadas
+					</div>
 				</div>
 				{showFinished && renderCardsByType("FINISHED")}
 			</div>

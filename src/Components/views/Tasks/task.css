@@ -64,12 +64,3 @@
 .task--filter--priority {
 	width: 150px;
 }
-
-.task--card--container {
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: center;
-	align-items: center;
-}
