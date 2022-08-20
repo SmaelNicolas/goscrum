@@ -1,30 +1,38 @@
 .card {
-	width: 250px;
-	min-height: 400px;
+	width: 260px;
+	min-height: 380px;
 	margin: 10px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	box-shadow: 0px 4px 8px var(--clr--black--medium);
-	background-color: #bababa33;
+	border-radius: 15px;
+	box-shadow: 0px 1px 2px 4px var(--clr--blue--lighter);
+	background-color: var(--clr--blue--light);
+	position: relative;
 }
 .card--HIGH--NEW {
-	box-shadow: 0px 4px 8px red;
-	border: 1px solid red;
+	box-shadow: 0px 1px 2px 4px red;
+}
+.card--HIGH--IN {
+	box-shadow: 0px 1px 2px 4px red;
+}
+.card--HIGH--FINISHED {
+	box-shadow: 0px 1px 2px 4px red;
 }
 .card--delete {
-	align-self: flex-end;
-	padding: 6px;
-	color: red;
+	padding: 5px;
+	color: var(--clr--blue--dark);
 	border: none;
-	margin: 2px;
 	cursor: pointer;
-	font-size: var(--fs--m);
+	font-size: var(--fs--xl);
+	position: absolute;
+	right: 0px;
+	background-color: transparent;
 }
 .card--label {
 	width: 80%;
 	font-size: var(--fs--xs);
-	border-bottom: 1px solid var(--clr--grey--ligth);
+	border-bottom: 1px solid var(--clr--blue--dark);
 	margin: 2px 0px;
 }
 .card--title {
@@ -36,6 +44,8 @@
 	margin: 5px 0px;
 	cursor: default;
 	font-weight: 600;
+	color: var(--clr--blue--darker);
+	font-family: var(--ff--ss--bold);
 }
 .card--time {
 	width: 100%;
@@ -52,12 +62,19 @@
 	cursor: default;
 }
 .card--button {
-	padding: 5px;
-	width: 120px;
-	height: 35px;
+	background-color: var(--clr--accept);
+	border: none;
+	padding: 5px 35px;
 	margin: 5px 0px;
 	cursor: pointer;
+	border-radius: 5px;
 	transition: 0.1s all linear;
+	font-weight: 500;
+	letter-spacing: 0.3px;
+	background-color: var(--clr--blue--lighter);
+	color: var(--clr--blue--darker);
+	font-family: var(--ff--ss--bold);
+	text-transform: capitalize;
 }
 .NEW {
 	border: 1px solid blue;
@@ -91,4 +108,7 @@
 	padding-top: 2px;
 	text-align: start;
 	overflow: hidden;
+	color: var(--clr--blue--darker);
+	font-family: var(--ff--ss--regular);
+	font-size: var(--fs--s);
 }
