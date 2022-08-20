@@ -1,3 +1,62 @@
+.task--container {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	background-color: var(--clr--blue--darker);
+	color: var(--clr--blue--lighter);
+	font-size: var(--fs--m);
+}
+
+.welcome--panel {
+	min-width: 280px;
+	min-height: 100px;
+	padding: 25px 0px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.welcome--options {
+	width: 120px;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.welcome--icons {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	border: 2px solid var(--clr--blue--lighter);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: var(--fs--xxl);
+	cursor: pointer;
+	transition: all 0.5s linear;
+}
+
+.welcome--icons:hover {
+	background-color: var(--clr--blue--dark);
+	transform: rotate(360deg);
+	transition: all 0.5s linear;
+}
+.welcome--action {
+	width: 100%;
+	margin: 5px;
+	text-align: center;
+	text-transform: capitalize;
+	cursor: pointer;
+	margin: 10px 0;
+	font-family: var(--ff--ss--light);
+}
+
 .filters {
 	width: 100%;
 	max-width: 400px;
@@ -32,67 +91,4 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-}
-
-.welcome--panel {
-	width: 100%;
-	min-height: 100px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
-	align-items: center;
-}
-
-.welcome--options {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.welcome--icons {
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	border: 2px solid black;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: var(--fs--m);
-	cursor: pointer;
-	transition: all 0.5s linear;
-}
-
-.welcome--container {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	margin: 10px 0;
-}
-
-.welcome--name {
-	width: 100%;
-	text-align: center;
-	margin: 10px 0;
-}
-.welcome--text {
-	width: 100%;
-	text-align: center;
-	margin: 10px 0;
-}
-
-.welcome--icons:hover {
-	background-color: var(--clr--accept);
-	transform: rotate(360deg);
-	transition: all 0.5s linear;
-}
-.welcome--action {
-	width: 90px;
-	margin: 5px;
-	text-align: center;
-	text-transform: capitalize;
-	cursor: pointer;
-	margin: 10px 0;
 }

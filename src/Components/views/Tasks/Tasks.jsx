@@ -1,17 +1,17 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import "react-loading-skeleton/dist/skeleton.css";
 import { Header } from "../../Header/Header";
 import { TaskForm } from "../../TaskForm/TaskForm";
-import "react-loading-skeleton/dist/skeleton.css";
 
-import "./task.css";
-import { TaskViews } from "../../TaskViews/TaskViews";
-import { getTasks } from "../../../store/actions/tasksActions";
+import { AiOutlinePlus, AiOutlineSearch } from "react-icons/ai";
 import { useDispatch } from "react-redux";
+import { getTasks } from "../../../store/actions/tasksActions";
+import { TaskViews } from "../../TaskViews/TaskViews";
+import "./task.css";
 
 export const Tasks = () => {
 	const dispatch = useDispatch();
 
-	const [user] = useState(localStorage.getItem("user"));
 	const [create, setCreate] = useState(false);
 	const [view, setView] = useState(false);
 
@@ -30,21 +30,20 @@ export const Tasks = () => {
 	}, []);
 
 	return (
-		<div className='big--container'>
+		<div className='task--container'>
 			<Header />
-			<div className='welcome--container'>
-				<div className='welcome--name'>Hola 🖐 {user}</div>
-				<div className='welcome--text'>¿Que queres realizar?</div>
-				<div className='welcome--panel'>
-					<div className='welcome--options' onClick={viewCreate}>
-						<div className='welcome--icons'>➕</div>
-						<div className='welcome--action'>crear tareas</div>
+			<div className='welcome--panel'>
+				<div className='welcome--options' onClick={viewCreate}>
+					<div className='welcome--icons'>
+						<AiOutlinePlus />
 					</div>
-					<div className='welcome--options' onClick={viewSearch}>
-						<div className='welcome--icons'>🔎</div>
-
-						<div className='welcome--action'>ver tareas</div>
+					<div className='welcome--action'>crear tarea</div>
+				</div>
+				<div className='welcome--options' onClick={viewSearch}>
+					<div className='welcome--icons'>
+						<AiOutlineSearch />
 					</div>
+					<div className='welcome--action'>ver tareas</div>
 				</div>
 			</div>
 			{create && <TaskForm />}
