@@ -1,10 +1,10 @@
-import React from "react";
 import { useFormik } from "formik";
-import { useNavigate, Link } from "react-router-dom";
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
-import "./login.css";
 import { POST_Login } from "../../../../APIs/fetchPOSTLogin";
+import "./login.css";
 
 export const Login = () => {
 	const navigate = useNavigate();
@@ -35,7 +35,7 @@ export const Login = () => {
 		formik;
 
 	return (
-		<div className='big--container'>
+		<div className='big--container positionRelative'>
 			<h1 className='h1--title'>Iniciar Sesión</h1>
 			<form onSubmit={handleSubmit} className='form--container'>
 				<div className='login--form--section'>

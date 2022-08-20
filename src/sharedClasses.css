@@ -91,3 +91,7 @@ button:hover {
 	transition: 0.1s all linear;
 	transform: scale(1.05);
 }
+
+.positionRelative {
+	position: relative;
+}
