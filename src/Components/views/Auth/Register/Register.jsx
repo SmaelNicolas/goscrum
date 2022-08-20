@@ -1,10 +1,12 @@
+import { FormControlLabel, Switch } from "@mui/material";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
-import { Switch, FormControlLabel } from "@mui/material";
-import { POST_Register } from "../../../../APIs/fetchPOSTRegister";
 import { GET_Data } from "../../../../APIs/fetchGETSelectors";
+import { POST_Register } from "../../../../APIs/fetchPOSTRegister";
+import RegisterImg from "../../../../assets/register.svg";
+
 import "./register.css";
 
 export const Register = () => {
@@ -66,18 +68,27 @@ export const Register = () => {
 	}, []);
 
 	return (
-		<div className='big--container'>
-			<form onSubmit={handleSubmit} className='form--container'>
-				<h1 className='h1--title'>Registro</h1>
+		<div className='register'>
+			<h1 className='register--title'>Registro de usuario</h1>
+			<form onSubmit={handleSubmit} className='register--container'>
+				<div className='login--icon'>
+					<img
+						className='login--icon--img'
+						src={RegisterImg}
+						alt='user icon'
+					/>
+				</div>
 				<div className='register--form--section'>
-					<label className='form--label'>Nombre de usuario</label>
+					<label className='register--form--label'>
+						Nombre de usuario
+					</label>
 					<input
 						name='userName'
 						type='text'
 						value={values.userName}
 						onChange={handleChange}
 						onBlur={handleBlur}
-						className={`form--input ${
+						className={`register--form--input ${
 							errors.userName
 								? "form--input--incorrect"
 								: "form--input--correct"
@@ -90,14 +101,14 @@ export const Register = () => {
 					)}
 				</div>
 				<div className='register--form--section'>
-					<label className='form--label'>Email</label>
+					<label className='register--form--label'>Email</label>
 					<input
 						name='email'
 						type='email'
 						value={values.email}
 						onChange={handleChange}
 						onBlur={handleBlur}
-						className={`form--input ${
+						className={`register--form--input ${
 							errors.email
 								? "form--input--incorrect"
 								: "form--input--correct"
@@ -108,14 +119,14 @@ export const Register = () => {
 					{errors.email && touched.email && <div>{errors.email}</div>}
 				</div>
 				<div className='register--form--section'>
-					<label className='form--label'>Contraseña</label>
+					<label className='register--form--label'>Contraseña</label>
 					<input
 						type='password'
 						name='password'
 						value={values.password}
 						onChange={handleChange}
 						onBlur={handleBlur}
-						className={`form--input ${
+						className={`register--form--input ${
 							errors.password
 								? "form--input--incorrect"
 								: "form--input--correct"
@@ -128,19 +139,19 @@ export const Register = () => {
 					)}
 				</div>
 				<div className='register--form--section'>
-					<label className='form--label'>Rol</label>
+					<label className='register--form--label'>Rol</label>
 					<select
 						name='role'
 						value={values.role}
 						onChange={handleChange}
 						onBlur={handleBlur}
-						className={`form--input ${
+						className={`register--form--input ${
 							errors.role
 								? "form--input--incorrect"
 								: "form--input--correct"
 						}`}
 					>
-						<option value=''>Seleccionar rol ...</option>
+						<option value=''>Seleccionar Rol</option>
 						{data?.Rol.map((rol) => (
 							<option value={rol} key={rol}>
 								{rol}
@@ -152,7 +163,7 @@ export const Register = () => {
 					{errors.role && touched.role && <div>{errors.role}</div>}
 				</div>
 				<div className='register--form--section'>
-					<label className='form--label'>Continente</label>
+					<label className='register--form--label'>Continente</label>
 					<select
 						name='continent'
 						value={values.continent}
@@ -160,13 +171,13 @@ export const Register = () => {
 							handleChangeContinent(e.currentTarget.value)
 						}
 						onBlur={handleBlur}
-						className={`form--input ${
+						className={`register--form--input ${
 							errors.continent
 								? "form--input--incorrect"
 								: "form--input--correct"
 						}`}
 					>
-						<option value=''>Seleccionar continente ...</option>
+						<option value=''>Seleccionar Continente</option>
 						{data?.continente.map((cont) => (
 							<option value={cont} key={cont}>
 								{cont}
@@ -181,13 +192,13 @@ export const Register = () => {
 				</div>
 				{values.continent === "America" && (
 					<div className='register--form--section'>
-						<label className='form--label'>Region</label>
+						<label className='register--form--label'>Region</label>
 						<select
 							name='region'
 							value={values.region}
 							onChange={handleChange}
 							onBlur={handleBlur}
-							className={`form--input ${
+							className={`register--form--input ${
 								errors.region
 									? "form--input--incorrect"
 									: "form--input--correct"
@@ -208,48 +219,58 @@ export const Register = () => {
 					)}
 				</div>
 
-				<FormControlLabel
-					control={
-						<Switch
-							value={values.switch}
-							onChange={() =>
-								formik.setFieldValue(
-									"switch",
-									!formik.values.switch
-								)
-							}
-							name='switch'
-							color='secondary'
-						/>
-					}
-					label='¿Ya pertenecés a un equipo?'
-				/>
-				{values.switch && (
-					<div className='register--form--section'>
-						<label className='form--label'>ID </label>
-						<input
-							type='text'
-							name='teamID'
-							value={values.teamID}
-							onChange={handleChange}
-						/>
-					</div>
-				)}
-				<div className='form--input--error'>
-					{errors.teamID && touched.teamID && (
-						<div>{errors.teamID}</div>
+				<div className='register--form--section--switch'>
+					<FormControlLabel
+						control={
+							<Switch
+								value={values.switch}
+								onChange={() =>
+									formik.setFieldValue(
+										"switch",
+										!formik.values.switch
+									)
+								}
+								name='switch'
+								color='secondary'
+							/>
+						}
+						label='¿Ya pertenecés a un equipo?'
+						className='register--control--label'
+					/>
+					{values.switch && (
+						<div className='register--form--section'>
+							<label className='register--form--label'>ID </label>
+							<input
+								type='text'
+								name='teamID'
+								value={values.teamID}
+								onChange={handleChange}
+								className={`register--form--input ${
+									errors.teamID
+										? "form--input--incorrect"
+										: "form--input--correct"
+								}`}
+							/>
+						</div>
 					)}
+					<div className='form--input--error'>
+						{errors.teamID && touched.teamID && (
+							<div>{errors.teamID}</div>
+						)}
+					</div>
 				</div>
 
 				<div>
-					<button type='submit' className='button--send'>
+					<button type='submit' className='register--button--send'>
 						Crear Usuario
 					</button>
 				</div>
-				<div className='form--help--text'>¿Ya tenes una cuenta?</div>
+				<div className='register--form--help--text'>
+					¿Ya tenes una cuenta?
+				</div>
 
 				<div>
-					<Link to='/login' className='link--othersection'>
+					<Link to='/login' className='register--link--othersection'>
 						Iniciar Sesion
 					</Link>
 				</div>
