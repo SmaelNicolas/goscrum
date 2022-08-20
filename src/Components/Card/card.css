@@ -6,7 +6,7 @@
 	flex-direction: column;
 	align-items: center;
 	border-radius: 15px;
-	box-shadow: 0px 1px 2px 4px var(--clr--blue--lighter);
+	box-shadow: 0px 1px 1px 2px var(--clr--blue--lighter);
 	background-color: var(--clr--blue--light);
 	position: relative;
 }
@@ -62,9 +62,10 @@
 	cursor: default;
 }
 .card--button {
+	width: 160px;
 	background-color: var(--clr--accept);
 	border: none;
-	padding: 5px 35px;
+	padding: 7px 35px;
 	margin: 5px 0px;
 	cursor: pointer;
 	border-radius: 5px;
