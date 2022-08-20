@@ -50,6 +50,11 @@
 	--ff--ss--medium: "SSMedium";
 	--ff--ss--bold: "SSBold";
 
+	--clr--blue--darker: #002b5b;
+	--clr--blue--dark: #2b4865;
+	--clr--blue--light: #256d85;
+	--clr--blue--lighter: #8fe3cf;
+
 	--clr--primary: blue;
 	--clr--secondary: purple;
 	--clr--attention: yellow;

@@ -5,7 +5,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #002b5b;
+	background-color: var(--clr--blue--darker);
 }
 
 .login--title {
@@ -15,19 +15,20 @@
 	margin-bottom: 55px;
 	cursor: default;
 	font-family: var(--ff--ss--medium);
-	color: #8fe3cf;
+	color: var(--clr--blue--lighter);
 }
 
 .login--icon {
 	width: 60px;
 	height: 60px;
-	color: #8fe3cf;
+	color: var(--clr--blue--lighter);
+
 	display: flex;
 	justify-content: center;
 	border-radius: 50%;
-	background-color: #002b5b;
-	border: 1px solid #2b4865;
-	box-shadow: 0px 1px 2px #8fe3cf;
+	background-color: var(--clr--blue--darker);
+	border: 1px solid var(--clr--blue--dark);
+	box-shadow: 0px 1px 2px var(--clr--blue--lighter);
 	position: absolute;
 	top: -40px;
 }
@@ -45,10 +46,10 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	border: 1px solid #2b4865;
+	border: 1px solid var(--clr--blue--dark);
 	padding: 50px 0px;
 	border-radius: 25px;
-	box-shadow: 0px 1px 2px #8fe3cf;
+	box-shadow: 0px 1px 2px var(--clr--blue--lighter);
 	position: relative;
 }
 
@@ -64,14 +65,14 @@
 .login--label {
 	font-size: var(--fs--primary);
 	font-weight: 900;
-	color: #8fe3cf;
+	color: var(--clr--blue--lighter);
 }
 
 .login--form--input {
 	padding: 5px 5px;
 	width: 200px;
-	background-color: #256d85;
-	color: #002b5b;
+	background-color: var(--clr--blue--light);
+	color: var(--clr--blue--darker);
 	font-family: var(--ff--ss--bold);
 	letter-spacing: 0.5px;
 }
@@ -80,13 +81,13 @@
 	font-size: var(--fs--s);
 	margin: 10px 0 2px 0;
 	cursor: default;
-	color: #256d85;
+	color: var(--clr--blue--light);
 }
 
 .login--link--othersection,
 .login--link--othersection:visited {
 	text-transform: uppercase;
-	color: #8fe3cf;
+	color: var(--clr--blue--lighter);
 }
 
 .login--button--send {
@@ -99,8 +100,8 @@
 	transition: 0.1s all linear;
 	font-weight: 500;
 	letter-spacing: 0.3px;
-	background-color: #8fe3cf;
-	color: #002b5b;
+	background-color: var(--clr--blue--lighter);
+	color: var(--clr--blue--darker);
 	font-family: var(--ff--ss--bold);
 	text-transform: uppercase;
 }
