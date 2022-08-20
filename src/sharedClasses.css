@@ -23,32 +23,6 @@
 	cursor: default;
 }
 
-.form--container {
-	width: 100%;
-	max-width: 400px;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: center;
-	border: 1px solid black;
-	padding: 50px 0px;
-	border-radius: 25px;
-}
-
-.form--label {
-	font-size: var(--fs--primary);
-	font-weight: 900;
-}
-
-.form--input {
-	padding: 5px 5px;
-	width: 200px;
-	background-color: #256d85;
-	color: #002b5b;
-	font-family: var(--ff--ss--bold);
-	letter-spacing: 0.5px;
-}
-
 .form--input--error {
 	align-self: center;
 	width: 80%;
