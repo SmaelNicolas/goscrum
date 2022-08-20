@@ -1,6 +1,7 @@
 .register {
 	width: 100%;
 	min-height: 100vh;
+	padding: 40px 0px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -137,4 +138,14 @@
 .css-priqlz-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked
 	+ .MuiSwitch-track {
 	background-color: var(--clr--blue--light) !important;
+}
+
+@media only screen and (max-width: 410px) {
+	.register--form--section {
+		flex-direction: column;
+	}
+	.register--form--label {
+		width: 195px;
+		margin-bottom: 5px;
+	}
 }
