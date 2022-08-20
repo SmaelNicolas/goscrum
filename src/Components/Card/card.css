@@ -28,6 +28,11 @@
 	position: absolute;
 	right: 0px;
 	background-color: transparent;
+	transition: all 0.2s;
+}
+.card--delete:hover {
+	transition: all 0.2s;
+	color: red;
 }
 .card--label {
 	width: 80%;
@@ -62,7 +67,7 @@
 	cursor: default;
 }
 .card--button {
-	width: 160px;
+	width: 162px;
 	background-color: var(--clr--accept);
 	border: none;
 	padding: 7px 35px;
@@ -74,31 +79,29 @@
 	letter-spacing: 0.3px;
 	background-color: var(--clr--blue--lighter);
 	color: var(--clr--blue--darker);
+	border: 2px solid var(--clr--blue--darker);
 	font-family: var(--ff--ss--bold);
 	text-transform: capitalize;
 }
 .NEW {
-	border: 1px solid blue;
 	background-color: lightblue;
+	color: var(--clr--blue--dark);
 }
 .IN {
-	border: 1px solid yellow;
 	background-color: gold;
+	color: var(--clr--blue--dark);
 }
 .FINISHED {
-	border: 1px solid green;
 	background-color: lime;
+	color: var(--clr--blue--dark);
 }
 .LOW {
-	border: 1px solid purple;
 	background-color: pink;
 }
 .MEDIUM {
-	border: 1px solid purple;
 	background-color: mediumpurple;
 }
 .HIGH {
-	border: 1px solid black;
 	background-color: red;
 	color: white;
 }
