@@ -24,9 +24,45 @@
 	background-repeat: repeat;
 }
 
+.error404--container {
+	width: 300px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 21px;
+	background: linear-gradient(45deg, #002752, #002e61);
+	box-shadow: 5px -5px 10px #001124, -5px 5px 10px #004592;
+}
+
 .error404--text {
 	width: 100%;
 	text-align: center;
 	min-height: 20px;
 	margin: 10px 0px;
+	font-family: var(--ff--ss--medium);
+	font-size: var(--fs--l);
+	color: var(--clr--blue--light);
+}
+
+.link--error404,
+.link--error404:visited {
+	text-transform: uppercase;
+	color: var(--clr--blue--lighter);
+
+	font-family: var(--ff--ss--bold);
+}
+
+.fallback--container {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--clr--blue--darker);
+	font-family: var(--ff--ss--light);
+	font-size: var(--fs--l);
+	color: var(--clr--blue--lighter);
 }

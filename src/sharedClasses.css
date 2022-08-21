@@ -32,12 +32,6 @@
 	border: 1px solid var(--clr--black--low);
 }
 
-.link--othersection,
-.link--othersection:visited {
-	text-transform: uppercase;
-	color: var(--clr--primary);
-}
-
 .form--help--text {
 	font-size: var(--fs--s);
 	margin: 10px 0 2px 0;

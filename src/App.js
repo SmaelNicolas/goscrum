@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Login } from "./Components/views/Auth/Login/Login";
 import { Register } from "./Components/views/Auth/Register/Register";
 import { Tasks } from "./Components/views/Tasks/Tasks";
@@ -9,6 +9,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Donate } from "./Components/views/Donate/Donate";
 
 // CSS
+import { ApiError } from "./Components/ScreenErrors/ApiError";
+import { LoadingContent } from "./Components/ScreenErrors/LoadingContent";
 import "./sharedClasses.css";
 
 const Error404 = lazy(() => import("./Components/ScreenErrors/Error404"));
@@ -83,8 +85,16 @@ export const App = () => {
 					<Route
 						path='*'
 						element={
-							<Suspense fallback={<>CARGANDOOOO...</>}>
+							<Suspense fallback={<LoadingContent />}>
 								<Error404 />
+							</Suspense>
+						}
+					/>
+					<Route
+						path='/error-api'
+						element={
+							<Suspense fallback={<LoadingContent />}>
+								<ApiError />
 							</Suspense>
 						}
 					/>
