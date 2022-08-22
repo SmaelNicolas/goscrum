@@ -118,3 +118,16 @@
 .swal--userCreated button {
 	background-color: green !important;
 }
+
+.Toastify__toast {
+	background-color: var(--clr--blue--lighter) !important;
+	border: 3px solid var(--clr--blue--darker) !important;
+	border-top-left-radius: 25px !important;
+	border-bottom-left-radius: 25px !important;
+	border-bottom-right-radius: 25px !important;
+	color: var(--clr--blue--dark) !important;
+	text-transform: uppercase;
+	width: 240px;
+	font-size: var(--fs--s) !important;
+	font-family: var(--ff--ss--bold) !important;
+}

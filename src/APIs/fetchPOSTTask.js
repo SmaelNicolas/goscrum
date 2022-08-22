@@ -16,6 +16,6 @@ export const POST_TASK = (values, resetForm) => {
 		.then((response) => response.json())
 		.then(() => {
 			resetForm();
-			toast("Tu tarea se creo");
+			toast("tarea creada exitosamente");
 		});
 };
