@@ -101,3 +101,20 @@
 .page {
 	width: 100%;
 }
+
+.swal--errorLogin {
+	background-color: var(--clr--blue--darker) !important;
+	color: var(--clr--blue--lighter) !important;
+}
+
+.swal2-confirm {
+	background-color: red !important;
+}
+
+.swal--userCreated {
+	background-color: var(--clr--blue--darker) !important;
+	color: var(--clr--blue--lighter) !important;
+}
+.swal--userCreated button {
+	background-color: green !important;
+}

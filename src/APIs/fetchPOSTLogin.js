@@ -22,6 +22,5 @@ export const POST_Login = (userName, password, navigate) => {
 			} else {
 				swal();
 			}
-		})
-		.catch(navigate("/error-api", { replace: true }));
+		});
 };
