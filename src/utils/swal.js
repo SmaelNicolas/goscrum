@@ -10,6 +10,8 @@ export const swal = () =>
 		timer: 5000,
 		timerProgressBar: true,
 		customClass: "swal--errorLogin",
+		allowOutsideClick: true,
+		allowEscapeKey: true,
 	});
 
 export const swalAccountCreated = (team, user, navigate) => {
@@ -21,6 +23,8 @@ export const swalAccountCreated = (team, user, navigate) => {
 		confirmButtonText: "Continuar",
 		showConfirmButton: true,
 		customClass: "swal--userCreated",
+		allowOutsideClick: true,
+		allowEscapeKey: true,
 	}).then(
 		navigate(`/login`, {
 			replace: true,
